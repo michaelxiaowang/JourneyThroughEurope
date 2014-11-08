@@ -30,6 +30,14 @@ public class JTEEventHandler {
         ui = initUI;
     }
     
+    /**
+     * Respond to a switch screen request
+     * @param uiState the screen user wants to switch to.
+     */
+    public void respondToSwitchScreenRequest(JTEUI.JTEUIState uiState) {
+        ui.changeScreen(uiState);
+    }
+    
     //Exit Button
     public void respondToExitRequest(Stage primaryStage) {
         // ENGLIS IS THE DEFAULT
