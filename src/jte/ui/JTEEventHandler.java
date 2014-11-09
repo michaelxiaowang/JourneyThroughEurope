@@ -38,6 +38,10 @@ public class JTEEventHandler {
         ui.changeScreen(uiState);
     }
     
+    public void respondToSetPlayerNumber(int numPlayers) {
+        ui.renderPlayerSelection(numPlayers);
+    }
+    
     //Exit Button
     public void respondToExitRequest(Stage primaryStage) {
         // ENGLIS IS THE DEFAULT

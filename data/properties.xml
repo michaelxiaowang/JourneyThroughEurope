@@ -6,7 +6,7 @@
 <properties>
     <property_list>    
         <property name="SPLASH_SCREEN_TITLE_TEXT"   value="Journey Through Europe"></property>
-        <property name="WINDOW_WIDTH"               value="1000"></property>
+        <property name="WINDOW_WIDTH"               value="1200"></property>
         <property name="WINDOW_HEIGHT"              value="800"></property>
         <property name="SPLASH_SCREEN_IMAGE_NAME"   value="JTESplashScreen.gif"></property>
         <property name="PLAY_IMG_NAME"              value="playgame.png"></property>
@@ -23,14 +23,13 @@
  
     </property_list>
     <property_options_list>
-        <property_options name="LEVEL_OPTIONS">
-            <option>Level 1</option>
-            <option>Level 2</option>
-            <option>Level 3</option>
-            <option>Level 4</option>
-            <option>Level 5</option>
-            <option>Level 6</option>
-            <option>Level 7</option>
+        <property_options name="PLAYER_FLAG">
+            <option>playeroneflag.png</option>
+            <option>playertwoflag.png</option>
+            <option>playerthreeflag.png</option>
+            <option>playerfourflag.png</option>
+            <option>playerfiveflag.png</option>
+            <option>playersixflag.png</option>
         </property_options>
         <property_options name="LEVEL_IMAGE_NAMES">
             <option>level_1.png</option>

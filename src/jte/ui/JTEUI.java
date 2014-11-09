@@ -7,15 +7,22 @@
 package jte.ui;
 
 import application.Main.JTEPropertyType;
+import java.util.ArrayList;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
+import javafx.scene.control.RadioButton;
+import javafx.scene.control.TextField;
+import javafx.scene.control.ToggleGroup;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.Background;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
@@ -61,6 +68,14 @@ public class JTEUI extends Pane{
     private Button aboutButton;
     private Button exitButton;
     
+    //selectPlayerScreen
+    private VBox selectPlayerPane;
+    private HBox numberPlayerPane;
+    private Label numberPlayerPrompt;
+    private ComboBox numberPlayerList;
+    private Button goButton;
+    private GridPane setPlayerPane;
+    
     //aboutScreen
     private VBox aboutPane;
     private WebView aboutWebView;
@@ -87,6 +102,7 @@ public class JTEUI extends Pane{
         initMainPane();
         initSplashScreen();
         initAboutScreen();
+        initSelectPlayerScreen();
         currentState = JTEUIState.SPLASH_SCREEN_STATE;
     }
     
@@ -117,6 +133,7 @@ public class JTEUI extends Pane{
                 .getProperty(JTEPropertyType.WINDOW_HEIGHT));
         mainPane.resize(paneWidth, paneHeigth);
         mainPane.setPadding(marginlessInsets);
+        mainPane.setStyle("-fx-background: #4FC3E3;");
     }
     
     public void initSplashScreen() {
@@ -140,6 +157,15 @@ public class JTEUI extends Pane{
         ImageView playButtonView = new ImageView(playButtonImage);
         playButton = new Button();
         playButton.setGraphic(playButtonView);
+        playButton.setOnAction(new EventHandler<ActionEvent>() {
+
+            @Override
+            public void handle(ActionEvent event) {
+                // TODO Auto-generated method stub
+                eventHandler.respondToSwitchScreenRequest(JTEUIState.SELECT_PLAYER_STATE);
+            }
+
+        });
         
         //Make the load button
         Image loadButtonImage = loadImage(props.getProperty(JTEPropertyType.LOAD_IMG_NAME));
@@ -198,13 +224,120 @@ public class JTEUI extends Pane{
         primaryStage.setTitle(title);
 
         // THEN ADD ALL THE STUFF WE MIGHT NOW USE
-        //initSelectPlayerScreen();
         
 
         // WE'LL START OUT WITH THE GAME SCREEN
-        //changeScreen(JTEUIState.SELECT_PLAYER_STATE);
+        changeScreen(JTEUIState.SELECT_PLAYER_STATE);
     }
     
+    /**
+     * Initialize the select player screen
+     */
+    public void initSelectPlayerScreen() {
+        selectPlayerPane = new VBox();
+        numberPlayerPane = new HBox();
+        
+        //Make the label
+        numberPlayerPrompt = new Label();
+        numberPlayerPrompt.setText("Number of Players:");
+        numberPlayerPrompt.setPadding(marginlessInsets);
+        
+        //Make the ComboBox
+        numberPlayerList = new ComboBox();
+        numberPlayerList.getItems().addAll("2", "3", "4", "5", "6");
+        numberPlayerList.setOnAction(new EventHandler<ActionEvent>() {
+
+            @Override
+            public void handle(ActionEvent event) {
+                // TODO Auto-generated method stub
+                eventHandler.respondToSetPlayerNumber(Integer.parseInt((String)numberPlayerList.getValue()));
+            }
+
+        });
+        
+        //Make the go button
+        goButton = new Button();
+        goButton.setText("GO");
+        
+        //Make setPlayerPane
+        setPlayerPane = new GridPane();
+        renderPlayerSelection(0);
+        
+        //Add to numberPlayerPane
+        numberPlayerPane.getChildren().addAll(numberPlayerPrompt, numberPlayerList, goButton);
+        
+        //Add to selectPlayerPane
+        selectPlayerPane.getChildren().addAll(numberPlayerPane, setPlayerPane);
+    }
+    
+    public void renderPlayerSelection(int numPlayers)
+    {
+        setPlayerPane.getChildren().clear(); //clean the previously rendered boxes
+        //make the set player boxes
+        int row = 0, col = 0; int added = 0;
+        
+        //draw six boxes
+        for(int i = 0; i < 6; i++) {
+            
+            //playerSelectionBox
+            BorderPane playerSelectionBox = new BorderPane();
+            playerSelectionBox.setPrefSize(400, 380);
+            playerSelectionBox.setStyle("-fx-border-color: black;");
+            
+            //new row when 3 are in one row already
+            if(added >= 3) {
+                    row++;
+                    col = 0;
+                    added = 0;
+                }
+            
+            //display set player options in number of boxes equal to number of players
+            if(i < numPlayers) {
+                HBox playerOptions = new HBox();
+                VBox playerOptionsAlign = new VBox();
+                playerOptions.setAlignment(Pos.CENTER);
+                playerOptionsAlign.setAlignment(Pos.CENTER);
+                playerOptions.setSpacing(10);
+                
+                //PlayerFlagImage
+                ArrayList<String> flagImages = props.getPropertyOptionsList(JTEPropertyType.PLAYER_FLAG);
+                Image flag = loadImage(flagImages.get(i));
+                ImageView flagView = new ImageView(flag);
+                flagView.setFitHeight(50);
+                flagView.setFitWidth(50);
+                
+                //SetPlayerTypeBox
+                VBox setPlayerTypeBox = new VBox();
+                setPlayerTypeBox.setSpacing(5);
+                final ToggleGroup group = new ToggleGroup();
+                RadioButton playerIsPlayer = new RadioButton("Player");
+                RadioButton playerIsComputer = new RadioButton("Computer");
+                playerIsPlayer.setToggleGroup(group);
+                playerIsComputer.setToggleGroup(group);
+                setPlayerTypeBox.getChildren().addAll(playerIsPlayer, playerIsComputer);
+                
+                //setPlayerNameBox
+                VBox setPlayerNameBox = new VBox();
+                Label namePrompt = new Label("Name");
+                TextField playerName = new TextField();
+                setPlayerNameBox.getChildren().addAll(namePrompt, playerName);
+                
+                playerOptions.getChildren().addAll(flagView, setPlayerTypeBox, setPlayerNameBox);
+                
+                playerOptionsAlign.getChildren().add(playerOptions);
+                playerSelectionBox.setCenter(playerOptionsAlign);
+            }
+            
+            //add the box, increment column and number added
+            setPlayerPane.add(playerSelectionBox, col, row);
+            col++;
+            added++;
+        }
+    }
+    
+    /**
+     * Initialize the about screen
+     */
     public void initAboutScreen() {
         
         //Make the return button
@@ -230,10 +363,6 @@ public class JTEUI extends Pane{
         aboutPane.getChildren().addAll(returnFromAboutButton, aboutWebView);
     }
     
-    public void initSelectPlayerScreen() {
-        
-    }
-    
     public Image loadImage(String imageName) {
         Image img = new Image(ImgPath + imageName);
         return img;
@@ -245,6 +374,9 @@ public class JTEUI extends Pane{
         switch (uiScreen) {
             case SPLASH_SCREEN_STATE:
                 mainPane.setCenter(splashPane);
+                break;
+            case SELECT_PLAYER_STATE:
+                mainPane.setCenter(selectPlayerPane);
                 break;
             case ABOUT_GAME_STATE:
                 returnToState = currentState;
