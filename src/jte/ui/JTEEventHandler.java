@@ -42,6 +42,15 @@ public class JTEEventHandler {
         ui.renderPlayerSelection(numPlayers);
     }
     
+    public void respondToNewGameRequest(JTEUI.JTEUIState uiState) {
+        ui.initJTEUI();
+        ui.changeScreen(uiState);
+    }
+    
+    public void respondToCityClickedRequest() {
+        System.out.print("Hello");  
+    }
+    
     //Exit Button
     public void respondToExitRequest(Stage primaryStage) {
         // ENGLIS IS THE DEFAULT

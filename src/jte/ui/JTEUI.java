@@ -18,17 +18,22 @@ import javafx.scene.control.Label;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleGroup;
+import javafx.scene.control.Tooltip;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.layout.Background;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
+import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
+import javafx.scene.shape.Circle;
 import javafx.scene.web.WebEngine;
 import javafx.scene.web.WebView;
 import javafx.stage.Stage;
+import jte.data.City;
 import jte.game.JTEGameData;
 import jte.game.JTEGameStateManager;
 import properties_manager.PropertiesManager;
@@ -40,7 +45,7 @@ import properties_manager.PropertiesManager;
 public class JTEUI extends Pane{
     
     public enum JTEUIState {
-        SPLASH_SCREEN_STATE, SELECT_PLAYER_STATE, ABOUT_GAME_STATE
+        SPLASH_SCREEN_STATE, SELECT_PLAYER_STATE, PLAY_GAME_STATE, VIEW_HISTORY_STATE, ABOUT_GAME_STATE
     }
     
     //PropertiesManager
@@ -76,8 +81,25 @@ public class JTEUI extends Pane{
     private Button goButton;
     private GridPane setPlayerPane;
     
+    //gamePane
+    private ArrayList<City> cities = new ArrayList<City>();
+    private int currenti;
+    private Label temp;
+    private BorderPane gamePane;
+    private AnchorPane gridPane;
+    private BorderPane leftGamePane;
+    private BorderPane rightGamePane;
+    
+    //historyScreen
+    private VBox historyPane;
+    private StackPane historyFrame;
+    private WebView historyView;
+    private WebEngine historyEngine;
+    private Button returnFromHistoryButton;
+    
     //aboutScreen
     private VBox aboutPane;
+    private StackPane webFrame;
     private WebView aboutWebView;
     private WebEngine aboutWebEngine;
     private Button returnFromAboutButton;
@@ -132,7 +154,7 @@ public class JTEUI extends Pane{
         paneHeigth = Integer.parseInt(props
                 .getProperty(JTEPropertyType.WINDOW_HEIGHT));
         mainPane.resize(paneWidth, paneHeigth);
-        mainPane.setPadding(marginlessInsets);
+        //mainPane.setPadding(marginlessInsets);
         mainPane.setStyle("-fx-background: #4FC3E3;");
     }
     
@@ -148,6 +170,8 @@ public class JTEUI extends Pane{
         //Make the splash image
         splashImage = loadImage(props.getProperty(JTEPropertyType.SPLASH_SCREEN_IMAGE_NAME));
         splashImageView = new ImageView(splashImage);
+        splashImageView.setFitHeight(700);
+        splashImageView.setFitWidth(1200);
         splashImageAlign = new HBox();
         splashImageAlign.getChildren().add(splashImageView);
         splashImageAlign.setAlignment(Pos.CENTER);
@@ -217,17 +241,10 @@ public class JTEUI extends Pane{
     public void initJTEUI() {
         // FIRST REMOVE THE SPLASH SCREEN
         mainPane.getChildren().clear();
-
-        // GET THE UPDATED TITLE
-        PropertiesManager props = PropertiesManager.getPropertiesManager();
-        String title = props.getProperty(JTEPropertyType.GAME_TITLE_TEXT);
-        primaryStage.setTitle(title);
-
-        // THEN ADD ALL THE STUFF WE MIGHT NOW USE
         
-
-        // WE'LL START OUT WITH THE GAME SCREEN
-        changeScreen(JTEUIState.SELECT_PLAYER_STATE);
+        // INITIALIZE GAME SCREEN
+        initGameScreen();
+        initHistoryScreen();
     }
     
     /**
@@ -245,6 +262,7 @@ public class JTEUI extends Pane{
         //Make the ComboBox
         numberPlayerList = new ComboBox();
         numberPlayerList.getItems().addAll("2", "3", "4", "5", "6");
+        numberPlayerList.setValue("2");
         numberPlayerList.setOnAction(new EventHandler<ActionEvent>() {
 
             @Override
@@ -258,10 +276,19 @@ public class JTEUI extends Pane{
         //Make the go button
         goButton = new Button();
         goButton.setText("GO");
+        goButton.setOnAction(new EventHandler<ActionEvent>() {
+
+            @Override
+            public void handle(ActionEvent event) {
+                // TODO Auto-generated method stub
+                eventHandler.respondToNewGameRequest(JTEUIState.PLAY_GAME_STATE);
+            }
+
+        });
         
         //Make setPlayerPane
         setPlayerPane = new GridPane();
-        renderPlayerSelection(0);
+        renderPlayerSelection(2);
         
         //Add to numberPlayerPane
         numberPlayerPane.getChildren().addAll(numberPlayerPrompt, numberPlayerList, goButton);
@@ -336,9 +363,169 @@ public class JTEUI extends Pane{
     }
     
     /**
+     * Initialize the game screen
+     */
+    public void initGameScreen() {
+        gamePane = new BorderPane();
+        gridPane = new AnchorPane();
+        
+        //We begin with gridA
+        Image gridA = loadImage(props.getProperty(JTEPropertyType.GRID_A_IMG_NAME));
+        ImageView gridAView = new ImageView(gridA);
+        gridAView.setFitWidth(600);
+        gridAView.setFitHeight(800);
+        gridPane.getChildren().add(gridAView);
+        gamePane.setCenter(gridPane);
+        
+        //gamePane left
+        leftGamePane = new BorderPane();
+        leftGamePane.setPrefSize(300, 800);
+        gamePane.setLeft(leftGamePane);
+        HBox buttons = new HBox();
+        Button about = new Button("About");
+        about.setOnAction(new EventHandler<ActionEvent>() {
+
+            @Override
+            public void handle(ActionEvent event) {
+                // TODO Auto-generated method stub
+                eventHandler.respondToSwitchScreenRequest(JTEUIState.ABOUT_GAME_STATE);
+            }
+
+        });
+        Button history = new Button("History");
+        history.setOnAction(new EventHandler<ActionEvent>() {
+
+            @Override
+            public void handle(ActionEvent event) {
+                // TODO Auto-generated method stub
+                eventHandler.respondToSwitchScreenRequest(JTEUIState.VIEW_HISTORY_STATE);
+            }
+
+        });
+        Button home = new Button("Home");
+        home.setOnAction(new EventHandler<ActionEvent>() {
+
+            @Override
+            public void handle(ActionEvent event) {
+                // TODO Auto-generated method stub
+                eventHandler.respondToSwitchScreenRequest(JTEUIState.SPLASH_SCREEN_STATE);
+            }
+
+        });
+        Button exit = new Button("Exit");
+        exit.setOnAction(new EventHandler<ActionEvent>() {
+
+            @Override
+            public void handle(ActionEvent event) {
+                // TODO Auto-generated method stub
+                eventHandler.respondToExitRequest(primaryStage);
+            }
+
+        });
+        buttons.getChildren().addAll(home, about, history, exit);
+        leftGamePane.setTop(buttons);
+        temp = new Label();
+        leftGamePane.setCenter(temp);
+        
+        //gamePane right
+        rightGamePane = new BorderPane();
+        rightGamePane.setPrefSize(300, 800);
+        gamePane.setRight(rightGamePane);
+        
+        //Load the city info
+        ArrayList<String> cityNames = props.getPropertyOptionsList(JTEPropertyType.CITY_NAMES);
+        ArrayList<String> cityX = props.getPropertyOptionsList(JTEPropertyType.CITY_X);
+        ArrayList<String> cityY = props.getPropertyOptionsList(JTEPropertyType.CITY_Y);
+        ArrayList<String> cityGrid = props.getPropertyOptionsList(JTEPropertyType.CITY_GRID);
+        
+        
+        
+        for(int i = 0; i < cityNames.size(); i++) {
+            currenti = i;
+            //Make the city and add it to list
+            City city = city = new City(cityNames.get(i), Float.parseFloat(cityX.get(i)), Float.parseFloat(cityY.get(i)), Integer.parseInt(cityGrid.get(i)));
+            cities.add(city);
+            
+            //Make the city button
+            Button cityButton = new Button();
+            Tooltip cityInfo = new Tooltip(city.getName() + ": (X, Y) = (" + city.getX() + ", " + city.getY() + ")");
+            cityButton.setTooltip(cityInfo);
+            Circle circle = new Circle();
+            circle.setRadius(10);
+            cityButton.setShape(circle);
+            cityButton.setLayoutX(city.getX()-10);
+            cityButton.setLayoutY(city.getY()-10);
+            gridPane.getChildren().add(cityButton);
+            
+            //When button is clicked, respond accordingly
+            cityButton.setOnMouseClicked(new EventHandler<MouseEvent>() {
+
+                @Override
+                public void handle(MouseEvent event) {
+                    // TODO Auto-generated method stub
+                    temp.setText(cityInfo.getText());
+                }
+            
+
+            });
+            
+            //When player hovers over city button, change cursor so they know they are in range
+            cityButton.setOnMouseEntered(new EventHandler<MouseEvent>() {
+
+                @Override
+                public void handle(MouseEvent event) {
+                    // TODO Auto-generated method stub
+                    cityButton.setStyle("-fx-cursor: hand; -fx-background-color: transparent;");
+                }
+            
+
+            });
+            
+            //Button should be transparent
+            cityButton.setStyle("-fx-background-color: transparent;");
+        }
+    }
+    
+    /**
+     * Initialize the history screen
+     */
+    public void initHistoryScreen() {
+        //Make the frame
+        historyFrame = new StackPane();
+        historyFrame.setPrefHeight(775);
+        
+        //Make the return button
+        returnFromHistoryButton = new Button();
+        returnFromHistoryButton.setText("Return");
+        returnFromHistoryButton.setOnAction(new EventHandler<ActionEvent>() {
+
+            @Override
+            public void handle(ActionEvent event) {
+                // TODO Auto-generated method stub
+                eventHandler.respondToSwitchScreenRequest(returnToState);
+            }
+
+        });
+        
+        //Load the history page
+        historyView = new WebView();
+        historyEngine = historyView.getEngine();
+        historyEngine.loadContent("<h1> HISTORY GOES HERE </h1>");
+        historyFrame.getChildren().add(historyView);
+        
+        //Now add the components
+        historyPane = new VBox();
+        historyPane.getChildren().addAll(returnFromHistoryButton, historyFrame);
+    }
+    
+    /**
      * Initialize the about screen
      */
     public void initAboutScreen() {
+        
+        //Make the frame
+        webFrame = new StackPane();
+        webFrame.setPrefHeight(775);
         
         //Make the return button
         returnFromAboutButton = new Button();
@@ -357,10 +544,11 @@ public class JTEUI extends Pane{
         aboutWebView = new WebView();
         aboutWebEngine = aboutWebView.getEngine();
         aboutWebEngine.load("http://en.wikipedia.org/wiki/Journey_Through_Europe");
+        webFrame.getChildren().add(aboutWebView);
         
         //Now add the components
         aboutPane = new VBox();
-        aboutPane.getChildren().addAll(returnFromAboutButton, aboutWebView);
+        aboutPane.getChildren().addAll(returnFromAboutButton, webFrame);
     }
     
     public Image loadImage(String imageName) {
@@ -375,8 +563,15 @@ public class JTEUI extends Pane{
             case SPLASH_SCREEN_STATE:
                 mainPane.setCenter(splashPane);
                 break;
+            case PLAY_GAME_STATE:
+                mainPane.setCenter(gamePane);
+                break;
             case SELECT_PLAYER_STATE:
                 mainPane.setCenter(selectPlayerPane);
+                break;
+            case VIEW_HISTORY_STATE:
+                returnToState = currentState;
+                mainPane.setCenter(historyPane);
                 break;
             case ABOUT_GAME_STATE:
                 returnToState = currentState;
