@@ -53,7 +53,7 @@ public class JTEEventHandler {
     
     //Exit Button
     public void respondToExitRequest(Stage primaryStage) {
-        // ENGLIS IS THE DEFAULT
+        /*// ENGLIS IS THE DEFAULT
         String options[] = new String[]{"Yes", "No"};
         PropertiesManager props = PropertiesManager.getPropertiesManager();
         options[0] = props.getProperty(JTEPropertyType.DEFAULT_YES_TEXT);
@@ -93,7 +93,9 @@ public class JTEEventHandler {
         noButton.setOnAction(e -> {
            // NO, LET'S NOT
             dialogStage.close();
-        });
+        });*/
+        
+        System.exit(0);
 
     }
 }
