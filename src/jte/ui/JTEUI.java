@@ -8,6 +8,7 @@ package jte.ui;
 
 import application.Main.JTEPropertyType;
 import java.util.ArrayList;
+import java.util.Iterator;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.geometry.Insets;
@@ -37,6 +38,7 @@ import jte.data.City;
 import jte.game.JTEGameData;
 import jte.game.JTEGameStateManager;
 import properties_manager.PropertiesManager;
+import xmlparser.XMLParser;
 
 /**
  *
@@ -84,7 +86,10 @@ public class JTEUI extends Pane{
     //gamePane
     private ArrayList<City> cities = new ArrayList<City>();
     private int currenti;
-    private Label temp;
+    private ImageView grid1;
+    private ImageView grid2;
+    private ImageView grid3;
+    private ImageView grid4;
     private BorderPane gamePane;
     private AnchorPane gridPane;
     private BorderPane leftGamePane;
@@ -170,8 +175,8 @@ public class JTEUI extends Pane{
         //Make the splash image
         splashImage = loadImage(props.getProperty(JTEPropertyType.SPLASH_SCREEN_IMAGE_NAME));
         splashImageView = new ImageView(splashImage);
-        splashImageView.setFitHeight(700);
-        splashImageView.setFitWidth(1200);
+        splashImageView.fitHeightProperty().bind(mainPane.heightProperty().divide(8).multiply(7));
+        splashImageView.fitWidthProperty().bind(mainPane.widthProperty());
         splashImageAlign = new HBox();
         splashImageAlign.getChildren().add(splashImageView);
         splashImageAlign.setAlignment(Pos.CENTER);
@@ -369,19 +374,32 @@ public class JTEUI extends Pane{
         gamePane = new BorderPane();
         gridPane = new AnchorPane();
         
-        //We begin with gridA
-        Image gridA = loadImage(props.getProperty(JTEPropertyType.GRID_A_IMG_NAME));
-        ImageView gridAView = new ImageView(gridA);
-        gridAView.setFitWidth(600);
-        gridAView.setFitHeight(800);
-        gridPane.getChildren().add(gridAView);
+        //Load the grid images
+        Image gridA = loadImage(props.getProperty(JTEPropertyType.GRID_1_IMG_NAME));
+        ImageView grid1 = new ImageView(gridA);
+        Image gridB = loadImage(props.getProperty(JTEPropertyType.GRID_2_IMG_NAME));
+        ImageView grid2 = new ImageView(gridA);
+        Image gridC = loadImage(props.getProperty(JTEPropertyType.GRID_3_IMG_NAME));
+        ImageView grid3 = new ImageView(gridA);
+        Image gridD = loadImage(props.getProperty(JTEPropertyType.GRID_4_IMG_NAME));
+        ImageView grid4 = new ImageView(gridA);
+        
+        //Begin with grid1
+        gridPane.getChildren().add(grid1);
         gamePane.setCenter(gridPane);
         
         //gamePane left
         leftGamePane = new BorderPane();
         leftGamePane.setPrefSize(300, 800);
         gamePane.setLeft(leftGamePane);
+        
+        //gamePane right
+        rightGamePane = new BorderPane();
+        rightGamePane.setPrefSize(300, 800);
+        gamePane.setRight(rightGamePane);
+        
         HBox buttons = new HBox();
+        buttons.setAlignment(Pos.CENTER);
         Button about = new Button("About");
         about.setOnAction(new EventHandler<ActionEvent>() {
 
@@ -423,23 +441,24 @@ public class JTEUI extends Pane{
 
         });
         buttons.getChildren().addAll(home, about, history, exit);
-        leftGamePane.setTop(buttons);
-        temp = new Label();
-        leftGamePane.setCenter(temp);
-        
-        //gamePane right
-        rightGamePane = new BorderPane();
-        rightGamePane.setPrefSize(300, 800);
-        gamePane.setRight(rightGamePane);
+        rightGamePane.setTop(buttons);
         
         //Load the city info
         ArrayList<String> cityNames = props.getPropertyOptionsList(JTEPropertyType.CITY_NAMES);
         ArrayList<String> cityX = props.getPropertyOptionsList(JTEPropertyType.CITY_X);
         ArrayList<String> cityY = props.getPropertyOptionsList(JTEPropertyType.CITY_Y);
         ArrayList<String> cityGrid = props.getPropertyOptionsList(JTEPropertyType.CITY_GRID);
-        
-        
-        
+        XMLParser.parsexml();
+        Iterator it = City.cities.entrySet().iterator();
+        for (City value : City.cities.values()) {
+            System.out.print(value.getName() + ": ");
+            if(value.getLandNeighbors().size() != 0) {
+                for(String city: value.getLandNeighbors()) {
+                    System.out.print(city + ", ");
+                }
+            }
+            System.out.print("\n");
+        }
         for(int i = 0; i < cityNames.size(); i++) {
             currenti = i;
             //Make the city and add it to list
@@ -463,7 +482,6 @@ public class JTEUI extends Pane{
                 @Override
                 public void handle(MouseEvent event) {
                     // TODO Auto-generated method stub
-                    temp.setText(cityInfo.getText());
                 }
             
 

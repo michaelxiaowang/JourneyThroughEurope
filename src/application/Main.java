@@ -37,6 +37,8 @@ public class Main extends Application {
             root.SetStage(primaryStage);
 
             Scene scene = new Scene(mainPane, mainPane.getWidth(), mainPane.getHeight());
+            mainPane.prefWidthProperty().bind(scene.widthProperty());
+            mainPane.prefHeightProperty().bind(scene.heightProperty());
             primaryStage.setScene(scene);
             primaryStage.show();
         } catch (Exception e) {
@@ -61,7 +63,7 @@ public class Main extends Application {
         /* GAME TEXT */
         SPLASH_SCREEN_TITLE_TEXT, GAME_TITLE_TEXT, GAME_SUBHEADER_TEXT, WIN_DISPLAY_TEXT, LOSE_DISPLAY_TEXT, GAME_RESULTS_TEXT, GUESS_LABEL, LETTER_OPTIONS, EXIT_REQUEST_TEXT, YES_TEXT, NO_TEXT, DEFAULT_YES_TEXT, DEFAULT_NO_TEXT, DEFAULT_EXIT_TEXT,
         /* IMAGE FILE NAMES */
-        WINDOW_ICON, SPLASH_SCREEN_IMAGE_NAME, PLAY_IMG_NAME, LOAD_IMG_NAME, ABOUT_IMG_NAME, EXIT_IMG_NAME, NEW_GAME_IMG_NAME, HOME_IMG_NAME, GRID_A_IMG_NAME,
+        WINDOW_ICON, SPLASH_SCREEN_IMAGE_NAME, PLAY_IMG_NAME, LOAD_IMG_NAME, ABOUT_IMG_NAME, EXIT_IMG_NAME, NEW_GAME_IMG_NAME, HOME_IMG_NAME, GRID_1_IMG_NAME, GRID_2_IMG_NAME, GRID_3_IMG_NAME, GRID_4_IMG_NAME,
         /* DATA FILE STUFF */
         GAME_FILE_NAME, STATS_FILE_NAME, HELP_FILE_NAME, WORD_LIST_FILE_NAME,
         /* TOOLTIPS */
