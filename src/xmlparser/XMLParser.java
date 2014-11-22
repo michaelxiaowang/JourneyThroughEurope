@@ -58,7 +58,7 @@ public class XMLParser {
                                     NodeList seaList = theNode.getChildNodes();
                                     for (int k = 0; k < seaList.getLength(); k++) {
                                         if (seaList.item(k).getNodeType() == Node.ELEMENT_NODE) {
-
+                                            city.getSeaNeighbors().add(seaList.item(k).getTextContent());
                                         }
                                     }
                                     break;

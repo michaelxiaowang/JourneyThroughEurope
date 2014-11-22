@@ -51,6 +51,14 @@ public class JTEEventHandler {
         System.out.print("Hello");  
     }
     
+    public void respondToRollDieRequest() {
+        ui.changeDie();
+    }
+    
+    public void respondToChangeGridRequest(JTEUI.JTEGridState gridState) {
+        ui.changeGrid(gridState);
+    }
+    
     //Exit Button
     public void respondToExitRequest(Stage primaryStage) {
         /*// ENGLIS IS THE DEFAULT

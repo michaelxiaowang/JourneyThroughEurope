@@ -47,7 +47,15 @@ import xmlparser.XMLParser;
 public class JTEUI extends Pane{
     
     public enum JTEUIState {
-        SPLASH_SCREEN_STATE, SELECT_PLAYER_STATE, PLAY_GAME_STATE, VIEW_HISTORY_STATE, ABOUT_GAME_STATE
+        SPLASH_SCREEN_STATE, SELECT_PLAYER_STATE, PLAY_GAME_STATE, VIEW_HISTORY_STATE, ABOUT_GAME_STATE,
+    }
+    
+    public enum JTEDiceState {
+        ONE_STATE, TWO_STATE, THREE_STATE, FOUR_STATE, FIVE_STATE, SIX_STATE
+    }
+    
+    public enum JTEGridState {
+        ONE_STATE, TWO_STATE, THREE_STATE, FOUR_STATE
     }
     
     //PropertiesManager
@@ -90,8 +98,10 @@ public class JTEUI extends Pane{
     private ImageView grid2;
     private ImageView grid3;
     private ImageView grid4;
-    private BorderPane gamePane;
     private AnchorPane gridPane;
+    private ImageView diceView;
+    private BorderPane gamePane;
+    private GridPane gridSelector;
     private BorderPane leftGamePane;
     private BorderPane rightGamePane;
     
@@ -373,19 +383,22 @@ public class JTEUI extends Pane{
     public void initGameScreen() {
         gamePane = new BorderPane();
         gridPane = new AnchorPane();
+        BorderPane gridFrame = new BorderPane();
+        gridFrame.setStyle("-fx-border-color:black; -fx-border-width: 3px");
         
         //Load the grid images
         Image gridA = loadImage(props.getProperty(JTEPropertyType.GRID_1_IMG_NAME));
-        ImageView grid1 = new ImageView(gridA);
+        grid1 = new ImageView(gridA);
         Image gridB = loadImage(props.getProperty(JTEPropertyType.GRID_2_IMG_NAME));
-        ImageView grid2 = new ImageView(gridA);
+        grid2 = new ImageView(gridB);
         Image gridC = loadImage(props.getProperty(JTEPropertyType.GRID_3_IMG_NAME));
-        ImageView grid3 = new ImageView(gridA);
+        grid3 = new ImageView(gridC);
         Image gridD = loadImage(props.getProperty(JTEPropertyType.GRID_4_IMG_NAME));
-        ImageView grid4 = new ImageView(gridA);
+        grid4 = new ImageView(gridD);
         
         //Begin with grid1
-        gridPane.getChildren().add(grid1);
+        gridFrame.setCenter(grid1);
+        gridPane.getChildren().add(gridFrame);
         gamePane.setCenter(gridPane);
         
         //gamePane left
@@ -398,6 +411,7 @@ public class JTEUI extends Pane{
         rightGamePane.setPrefSize(300, 800);
         gamePane.setRight(rightGamePane);
         
+        //Toolbar buttons
         HBox buttons = new HBox();
         buttons.setAlignment(Pos.CENTER);
         Button about = new Button("About");
@@ -443,6 +457,97 @@ public class JTEUI extends Pane{
         buttons.getChildren().addAll(home, about, history, exit);
         rightGamePane.setTop(buttons);
         
+        //Dice
+        Image dice = loadImage("die_1.jpg");
+        diceView = new ImageView(dice);
+        diceView.setOnMouseClicked(new EventHandler<MouseEvent>() {
+
+            @Override
+            public void handle(MouseEvent event) {
+                // TODO Auto-generated method stub
+                eventHandler.respondToRollDieRequest();
+            }
+
+        });
+        
+        //GridSelector
+        gridSelector = new GridPane();
+        ImageView gridImage1 = new ImageView(loadImage(props.getProperty(JTEPropertyType.GRID_1_IMG_NAME)));
+        ImageView gridImage2 = new ImageView(loadImage(props.getProperty(JTEPropertyType.GRID_2_IMG_NAME)));
+        ImageView gridImage3 = new ImageView(loadImage(props.getProperty(JTEPropertyType.GRID_3_IMG_NAME)));
+        ImageView gridImage4 = new ImageView(loadImage(props.getProperty(JTEPropertyType.GRID_4_IMG_NAME)));
+        gridImage1.setFitWidth(75);
+        gridImage1.setFitHeight(100);
+        gridImage2.setFitWidth(75);
+        gridImage2.setFitHeight(100);
+        gridImage3.setFitWidth(75);
+        gridImage3.setFitHeight(100);
+        gridImage4.setFitWidth(75);
+        gridImage4.setFitHeight(100);
+        
+        //Add border to each gridSelector element
+        BorderPane grid1Stack = new BorderPane();
+        grid1Stack.setOnMouseClicked(new EventHandler<MouseEvent>() {
+        
+            @Override
+            public void handle(MouseEvent event) {
+                eventHandler.respondToChangeGridRequest(JTEGridState.ONE_STATE);
+            }
+            
+        });
+        BorderPane grid2Stack = new BorderPane();
+        grid2Stack.setOnMouseClicked(new EventHandler<MouseEvent>() {
+        
+            @Override
+            public void handle(MouseEvent event) {
+                eventHandler.respondToChangeGridRequest(JTEGridState.TWO_STATE);
+            }
+            
+        });
+        BorderPane grid3Stack = new BorderPane();
+        grid3Stack.setOnMouseClicked(new EventHandler<MouseEvent>() {
+        
+            @Override
+            public void handle(MouseEvent event) {
+                eventHandler.respondToChangeGridRequest(JTEGridState.THREE_STATE);
+            }
+            
+        });
+        BorderPane grid4Stack = new BorderPane();
+        grid4Stack.setOnMouseClicked(new EventHandler<MouseEvent>() {
+        
+            @Override
+            public void handle(MouseEvent event) {
+                eventHandler.respondToChangeGridRequest(JTEGridState.FOUR_STATE);
+            }
+            
+        });
+        grid1Stack.setCenter(gridImage1);
+        grid1Stack.setStyle("-fx-border-color: black; -fx-border-width: 1px");
+        grid2Stack.setCenter(gridImage2);
+        grid2Stack.setStyle("-fx-border-color: black; -fx-border-width: 1px");
+        grid3Stack.setCenter(gridImage3);
+        grid3Stack.setStyle("-fx-border-color: black; -fx-border-width: 1px");
+        grid4Stack.setCenter(gridImage4);
+        grid4Stack.setStyle("-fx-border-color: black; -fx-border-width: 1px");
+        
+        //Now add the elements to the gridSelector
+        gridSelector.add(grid1Stack, 0, 0);
+        gridSelector.add(grid2Stack, 1, 0);
+        gridSelector.add(grid3Stack, 0, 1);
+        gridSelector.add(grid4Stack, 1, 1);
+        gridSelector.setStyle("-fx-border-color: black; -fx-border-width: 1px");
+        
+        //Add the die and gridselector
+        VBox dieGridV = new VBox();
+        HBox dieGridH = new HBox();
+        dieGridV.getChildren().addAll(diceView, gridSelector);
+        dieGridV.setAlignment(Pos.CENTER);
+        dieGridV.setSpacing(20);
+        dieGridH.getChildren().add(dieGridV);
+        dieGridH.setAlignment(Pos.CENTER);
+        rightGamePane.setCenter(dieGridH);
+        
         //Load the city info
         ArrayList<String> cityNames = props.getPropertyOptionsList(JTEPropertyType.CITY_NAMES);
         ArrayList<String> cityX = props.getPropertyOptionsList(JTEPropertyType.CITY_X);
@@ -453,7 +558,7 @@ public class JTEUI extends Pane{
         for (City value : City.cities.values()) {
             System.out.print(value.getName() + ": ");
             if(value.getLandNeighbors().size() != 0) {
-                for(String city: value.getLandNeighbors()) {
+                for(String city: value.getSeaNeighbors()) {
                     System.out.print(city + ", ");
                 }
             }
@@ -503,6 +608,40 @@ public class JTEUI extends Pane{
             cityButton.setStyle("-fx-background-color: transparent;");
         }
     }
+    
+    /**
+     * Change Die Picture
+     */
+    public void changeDie() {
+        Integer num = (int)(Math.random()*6+1);
+        String dieImagePath = "die_"+num.toString()+".jpg";
+        diceView.setImage(loadImage(dieImagePath));
+    }
+    
+    /**
+     * Change the grid
+     */
+    public void changeGrid(JTEGridState gridState) {
+        switch(gridState) {
+            case ONE_STATE:
+                gridPane.getChildren().clear();
+                gridPane.getChildren().add(grid1);
+                break;
+            case TWO_STATE:
+                gridPane.getChildren().clear();
+                gridPane.getChildren().add(grid2);
+                break;
+            case THREE_STATE:
+                gridPane.getChildren().clear();
+                gridPane.getChildren().add(grid3);
+                break;
+            case FOUR_STATE:
+                gridPane.getChildren().clear();
+                gridPane.getChildren().add(grid4);
+                break;
+        }
+    }
+    
     
     /**
      * Initialize the history screen
