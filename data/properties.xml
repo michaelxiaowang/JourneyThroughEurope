@@ -35,102 +35,13 @@
             <option>playerfiveflag.png</option>
             <option>playersixflag.png</option>
         </property_options>
-        <property_options name="LEVEL_IMAGE_NAMES">
-            <option>level_1.png</option>
-            <option>level_2.png</option>
-            <option>level_3.png</option>
-            <option>level_4.png</option>
-            <option>level_5.png</option>
-            <option>level_6.png</option>
-            <option>level_7.png</option>
+        <property_options name="PLAYER_PIECE">
+            <option>piece_1.png</option>
+            <option>piece_2.png</option>
+            <option>piece_3.png</option>
+            <option>piece_4.png</option>
+            <option>piece_5.png</option>
+            <option>piece_6.png</option>
         </property_options>
-        <property_options name="CITY_NAMES">
-            <option>ABERDEEN</option>
-            <option>ARHUS</option>
-            <option>BELFAST</option>
-            <option>BERGEN</option>
-            <option>BIRMINGHAM</option>
-            <option>BREMEN</option>
-            <option>CORK</option>
-            <option>DUBLIN</option>
-            <option>FAROER</option>
-            <option>GLASGOW</option>
-            <option>GRONINGEN</option>
-            <option>HAMBURG</option>
-            <option>INVERNESS</option>
-            <option>KIEL</option>
-            <option>LEEDS</option>
-            <option>LIVERPOOL</option>
-            <option>NEWCASTLE</option>
-            <option>REYKJAVIK</option>
-            <option>SHETLAND ISLANDS</option>
-            <option>STAVANGER</option>
-        </property_options>
-        <property_options name="CITY_X">
-            <option>334</option>
-            <option>596</option>
-            <option>231</option>
-            <option>507</option>
-            <option>297</option>
-            <option>562</option>
-            <option>139</option>
-            <option>205</option>
-            <option>288</option>
-            <option>273</option>
-            <option>509</option>
-            <option>592</option>
-            <option>292</option>
-            <option>594</option>
-            <option>318</option>
-            <option>285</option>
-            <option>325</option>
-            <option>64</option>
-            <option>377</option>
-            <option>507</option>
-        </property_options>
-        <property_options name="CITY_Y">
-            <option>608</option>
-            <option>674</option>
-            <option>688</option>
-            <option>503</option>
-            <option>797</option>
-            <option>797</option>
-            <option>779</option>
-            <option>732</option>
-            <option>406</option>
-            <option>652</option>
-            <option>784</option>
-            <option>778</option>
-            <option>590</option>
-            <option>744</option>
-            <option>740</option>
-            <option>750</option>
-            <option>696</option>
-            <option>225</option>
-            <option>489</option>
-            <option>555</option>
-        </property_options>
-        <property_options name="CITY_GRID">
-            <option>1</option>
-            <option>1</option>
-            <option>1</option>
-            <option>1</option>
-            <option>1</option>
-            <option>1</option>
-            <option>1</option>
-            <option>1</option>
-            <option>1</option>
-            <option>1</option>
-            <option>1</option>
-            <option>1</option>
-            <option>1</option>
-            <option>1</option>
-            <option>1</option>
-            <option>1</option>
-            <option>1</option>
-            <option>1</option>
-            <option>1</option>
-            <option>1</option>
-        </property_options>
-    </property_options_list>
+    </property_options_list>  
 </properties>

@@ -45,6 +45,34 @@ public class XMLParser {
                                         city = City.cities.get(theNode.getTextContent());
                                     }
                                     break;
+                                case "x":
+                                    Node xValue = theNode.getFirstChild();
+                                    city.setX(Integer.parseInt(xValue.getTextContent()));
+                                    break;
+                                case "y":
+                                    Node yValue = theNode.getFirstChild();
+                                    city.setY(Integer.parseInt(yValue.getTextContent()));
+                                    break;
+                                case "grid":
+                                    Node gridValue = theNode.getFirstChild();
+                                    city.setGrid(Integer.parseInt(gridValue.getTextContent()));
+                                    break;
+                                case "flight":
+                                    if(theNode.hasChildNodes()) {
+                                        Node flightValue = theNode.getFirstChild();
+                                        city.setFlight(Integer.parseInt(flightValue.getTextContent()));
+                                    }
+                                    break;
+                                case "color":
+                                    Node colorValue = theNode.getFirstChild();
+                                    city.setColor(colorValue.getTextContent());
+                                    if(colorValue.getTextContent().equalsIgnoreCase("RED"))
+                                        City.redcities.add(city.getName());
+                                    else if(colorValue.getTextContent().equalsIgnoreCase("GREEN"))
+                                        City.greencities.add(city.getName());
+                                    else if(colorValue.getTextContent().equalsIgnoreCase("YELLOW"))
+                                        City.yellowcities.add(city.getName());
+                                    break;
                                 case "land":
                                     NodeList landList = theNode.getChildNodes();
                                     String neighbor;
@@ -61,7 +89,7 @@ public class XMLParser {
                                             city.getSeaNeighbors().add(seaList.item(k).getTextContent());
                                         }
                                     }
-                                    break;
+                                    break; 
                             }
                         }
                     }

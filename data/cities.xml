@@ -1,6 +1,11 @@
 <routes>
     <city>
         <name>CORK</name>
+        <x>139</x>
+        <y>779</y>
+        <grid>1</grid>
+        <flight></flight>
+        <color>RED</color>
         <land>
             <city>DUBLIN</city>
         </land>
@@ -8,6 +13,11 @@
     </city>
     <city>
         <name>FAROER</name>
+        <x>290</x>
+        <y>406</y>
+        <grid>1</grid>
+        <flight></flight>
+        <color>RED</color>
         <land></land>
         <sea>
             <city>REYKJAVIK</city>
@@ -17,6 +27,12 @@
     </city>
     <city>
         <name>MAGDEBURG</name>
+        <x>40</x>
+        <y>25</y>
+        <grid>4</grid>
+        <flight></flight>
+        <color>RED</color>
+        <land></land>
         <land>
             <city>BERLIN</city>
             <city>HANNOVER</city>
@@ -25,6 +41,11 @@
     </city>
     <city>
         <name>BELFAST</name>
+        <x>234</x>
+        <y>688</y>
+        <grid>1</grid>
+        <flight></flight>
+        <color>RED</color>
         <land>
             <city>DUBLIN</city>
         </land>
@@ -34,6 +55,11 @@
     </city>
     <city>
         <name>MALMO</name>
+        <x>78</x>
+        <y>695</y>
+        <grid>2</grid>
+        <flight></flight>
+        <color>RED</color>
         <land>
             <city>JONKOPING</city>
             <city>GOTEBORG</city>
@@ -43,6 +69,11 @@
     </city>
     <city>
         <name>KIEL</name>
+        <x>596</x>
+        <y>744</y>
+        <grid>1</grid>
+        <flight></flight>
+        <color>RED</color>
         <land>
             <city>ARHUS</city>
             <city>BREMEN</city>
@@ -51,6 +82,11 @@
     </city>
     <city>
         <name>OULU</name>
+        <x>266</x>
+        <y>287</y>
+        <grid>2</grid>
+        <flight></flight>
+        <color>RED</color>
         <land>
             <city>VAASA</city>
             <city>TAMPERE</city>
@@ -59,14 +95,24 @@
     </city>
     <city>
         <name>MINSK</name>
+        <x>401</x>
+        <y>703</y>
+        <grid>2</grid>
+        <flight></flight>
+        <color>RED</color>
         <land>
             <city>SMOLENSK</city>
-            <city>WARSAW</city>
+            <city>WARSZAWA</city>
         </land>
         <sea></sea>
     </city>
     <city>
         <name>GRONINGEN</name>
+        <x>512</x>
+        <y>784</y>
+        <grid>1</grid>
+        <flight></flight>
+        <color>RED</color>
         <land>
             <city>HAMBURG</city>
             <city>AMSTERDAM</city>
@@ -75,6 +121,11 @@
     </city>
     <city>
         <name>STAVANGER</name>
+        <x>510</x>
+        <y>555</y>
+        <grid>1</grid>
+        <flight></flight>
+        <color>RED</color>
         <land>
             <city>OSLO</city>
         </land>
@@ -84,6 +135,11 @@
     </city>
     <city>
         <name>LEEDS</name>
+        <x>320</x>
+        <y>740</y>
+        <grid>1</grid>
+        <flight></flight>
+        <color>RED</color>
         <land>
             <city>LONDON</city>
             <city>LIVERPOOL</city>
@@ -93,6 +149,11 @@
     </city>
     <city>
         <name>NORRKOPING</name>
+        <x>138</x>
+        <y>557</y>
+        <grid>2</grid>
+        <flight></flight>
+        <color>RED</color>
         <land>
             <city>JONKOPING</city>
             <city>STOCKHOLM</city>
@@ -101,6 +162,11 @@
     </city>
     <city>
         <name>VAASA</name>
+        <x>212</x>
+        <y>374</y>
+        <grid>2</grid>
+        <flight></flight>
+        <color>RED</color>
         <land>
             <city>OULU</city>
             <city>TAMPERE</city>
@@ -109,6 +175,11 @@
     </city>
     <city>
         <name>GAVLE</name>
+        <x>137</x>
+        <y>474</y>
+        <grid>2</grid>
+        <flight></flight>
+        <color>RED</color>
         <land>
             <city>SUNDSVALL</city>
             <city>STOCKHOLM</city>
@@ -117,6 +188,11 @@
     </city>
     <city>
         <name>LUBECK</name>
+        <x>21</x>
+        <y>757</y>
+        <grid>2</grid>
+        <flight></flight>
+        <color>RED</color>
         <land>
             <city>KOBENHAVN</city>
             <city>BREMEN</city>
@@ -127,6 +203,11 @@
     </city>
     <city>
         <name>VITEBSK</name>
+        <x>438</x>
+        <y>634</y>
+        <grid>2</grid>
+        <flight></flight>
+        <color>RED</color>
         <land>
             <city>LENINGRAD</city>
             <city>SMOLENSK</city>
@@ -136,6 +217,11 @@
     </city>
     <city>
         <name>JONKOPING</name>
+        <x>90</x>
+        <y>604</y>
+        <grid>2</grid>
+        <flight></flight>
+        <color>RED</color>
         <land>
             <city>NORRKOPING</city>
             <city>GOTEBORG</city>
@@ -145,6 +231,11 @@
     </city>
     <city>
         <name>TORONDHEIM</name>
+        <x>16</x>
+        <y>380</y>
+        <grid>2</grid>
+        <flight></flight>
+        <color>RED</color>
         <land>
             <city>SUNDSVALL</city>
         </land>
@@ -155,6 +246,11 @@
     </city>
     <city>
         <name>POZNAN</name>
+        <x>164</x>
+        <y>797</y>
+        <grid>2</grid>
+        <flight></flight>
+        <color>RED</color>
         <land>
             <city>GDANSK</city>
             <city>SZCZECIN</city>
@@ -166,6 +262,11 @@
     </city>
     <city>
         <name>HANNOVER</name>
+        <x>591</x>
+        <y>19</y>
+        <grid>3</grid>
+        <flight></flight>
+        <color>RED</color>
         <land>
             <city>HAMBURG</city>
             <city>BREMEN</city>
@@ -176,6 +277,11 @@
     </city>
     <city>
         <name>KARLSTAD</name>
+        <x>77</x>
+        <y>526</y>
+        <grid>2</grid>
+        <flight></flight>
+        <color>RED</color>
         <land>
             <city>OSLO</city>
             <city>STOCKHOLM</city>
@@ -184,6 +290,11 @@
     </city>
     <city>
         <name>NEWCASTLE</name>
+        <x>325</x>
+        <y>696</y>
+        <grid>1</grid>
+        <flight></flight>
+        <color>RED</color>
         <land>
             <city>GLASGOW</city>
             <city>LEEDS</city>
@@ -195,6 +306,11 @@
     </city>
     <city>
         <name>ARKHANGEL'SK</name>
+        <x>517</x>
+        <y>230</y>
+        <grid>2</grid>
+        <flight></flight>
+        <color>RED</color>
         <land>
             <city>LENINGRAD</city>
             <city>MOSKVA</city>
@@ -205,6 +321,11 @@
     </city>
     <city>
         <name>GOTEBORG</name>
+        <x>48</x>
+        <y>610</y>
+        <grid>2</grid>
+        <flight></flight>
+        <color>RED</color>
         <land>
             <city>JONKOPING</city>
             <city>MALMO</city>
@@ -214,6 +335,11 @@
     </city>
     <city>
         <name>SZCZECIN</name>
+        <x>110</x>
+        <y>767</y>
+        <grid>2</grid>
+        <flight></flight>
+        <color>RED</color>
         <land>
             <city>POZNAN</city>
         </land>
@@ -221,6 +347,11 @@
     </city>
     <city>
         <name>TALLIN</name>
+        <x>290</x>
+        <y>508</y>
+        <grid>2</grid>
+        <flight></flight>
+        <color>RED</color>
         <land>
             <city>LENINGRAD</city>
             <city>RIGA</city>
@@ -229,6 +360,11 @@
     </city>
     <city>
         <name>INVERNESS</name>
+        <x>295</x>
+        <y>590</y>
+        <grid>1</grid>
+        <flight></flight>
+        <color>RED</color>
         <land>
             <city>ABERDEEN</city>
             <city>GLASGOW</city>
@@ -237,6 +373,11 @@
     </city>
     <city>
         <name>TAMPERE</name>
+        <x>260</x>
+        <y>425</y>
+        <grid>2</grid>
+        <flight></flight>
+        <color>RED</color>
         <land>
             <city>VAASA</city>
             <city>HELSINKI</city>
@@ -245,6 +386,11 @@
     </city>
     <city>
         <name>SUNDSVALL</name>
+        <x>138</x>
+        <y>417</y>
+        <grid>2</grid>
+        <flight></flight>
+        <color>RED</color>
         <land>
             <city>LULEA</city>
             <city>GAVLE</city>
@@ -253,6 +399,11 @@
     </city>
     <city>
         <name>LIVERPOOL</name>
+        <x>287</x>
+        <y>750</y>
+        <grid>1</grid>
+        <flight></flight>
+        <color>RED</color>
         <land>
             <city>LEEDS</city>
             <city>BIRMINGHAM</city>
@@ -263,6 +414,11 @@
     </city>
     <city>
         <name>LULEA</name>
+        <x>203</x>
+        <y>265</y>
+        <grid>2</grid>
+        <flight></flight>
+        <color>RED</color>
         <land>
             <city>KIRUNA</city>
             <city>ROVANIEMI</city>
@@ -272,6 +428,11 @@
     </city>
     <city>
         <name>SMOLENSK</name>
+        <x>483</x>
+        <y>646</y>
+        <grid>2</grid>
+        <flight></flight>
+        <color>RED</color>
         <land>
             <city>VITEBSK</city>
             <city>MOSKVA</city>
@@ -282,6 +443,11 @@
     </city>
     <city>
         <name>NARVIK</name>
+        <x>107</x>
+        <y>180</y>
+        <grid>2</grid>
+        <flight></flight>
+        <color>RED</color>
         <land>
             <city>KIRUNA</city>
         </land>
@@ -292,6 +458,11 @@
     </city>
     <city>
         <name>ARHUS</name>
+        <x>598</x>
+        <y>674</y>
+        <grid>1</grid>
+        <flight></flight>
+        <color>RED</color>
         <land>
             <city>KOBENHAVN</city>
             <city>KIEL</city>
@@ -302,6 +473,11 @@
     </city>
     <city>
         <name>ROSTOCK</name>
+        <x>47</x>
+        <y>751</y>
+        <grid>2</grid>
+        <flight></flight>
+        <color>RED</color>
         <land>
             <city>BERLIN</city>
         </land>
@@ -309,6 +485,11 @@
     </city>
     <city>
         <name>BIRMINGHAM</name>
+        <x>299</x>
+        <y>797</y>
+        <grid>1</grid>
+        <flight></flight>
+        <color>RED</color>
         <land>
             <city>LONDON</city>
             <city>BRISTOL</city>
@@ -318,6 +499,11 @@
     </city>
     <city>
         <name>BREMEN</name>
+        <x>564</x>
+        <y>797</y>
+        <grid>1</grid>
+        <flight></flight>
+        <color>RED</color>
         <land>
             <city>KIEL</city>
             <city>LUBECK</city>
@@ -331,6 +517,11 @@
     </city>
     <city>
         <name>ABERDEEN</name>
+        <x>334</x>
+        <y>608</y>
+        <grid>1</grid>
+        <flight></flight>
+        <color>RED</color>
         <land>
             <city>INVERNESS</city>
             <city>GLASGOW</city>
@@ -341,6 +532,11 @@
     </city>
     <city>
         <name>KIRUNA</name>
+        <x>161</x>
+        <y>197</y>
+        <grid>2</grid>
+        <flight></flight>
+        <color>RED</color>
         <land>
             <city>NARVIK</city>
             <city>LULEA</city>
@@ -349,6 +545,11 @@
     </city>
     <city>
         <name>GLASGOW</name>
+        <x>277</x>
+        <y>652</y>
+        <grid>1</grid>
+        <flight>1</flight>
+        <color>RED</color>
         <land>
             <city>INVERNESS</city>
             <city>ABERDEEN</city>
@@ -361,6 +562,11 @@
     </city>
     <city>
         <name>BERGEN</name>
+        <x>510</x>
+        <y>503</y>
+        <grid>1</grid>
+        <flight></flight>
+        <color>RED</color>
         <land>
             <city>OSLO</city>
         </land>
@@ -372,6 +578,11 @@
     </city>
     <city>
         <name>BRISTOL</name>
+        <x>288</x>
+        <y>26</y>
+        <grid>3</grid>
+        <flight></flight>
+        <color>RED</color>
         <land>
             <city>BIRMINGHAM</city>
             <city>LONDON</city>
@@ -380,6 +591,11 @@
     </city>
     <city>
         <name>LONDON</name>
+        <x>352</x>
+        <y>32</y>
+        <grid>3</grid>
+        <flight>4</flight>
+        <color>RED</color>
         <land>
             <city>LEEDS</city>
             <city>BIRMINGHAM</city>
@@ -394,6 +610,11 @@
     </city>
     <city>
         <name>REYKJAVIK</name>
+        <x>69</x>
+        <y>225</y>
+        <grid>1</grid>
+        <flight>1</flight>
+        <color>RED</color>
         <land></land>
         <sea>
             <city>FAROER</city>
@@ -401,23 +622,38 @@
     </city>
     <city>
         <name>RIGA</name>
+        <x>295</x>
+        <y>602</y>
+        <grid>2</grid>
+        <flight></flight>
+        <color>RED</color>
         <land>
             <city>TALLIN</city>
-            <city>WARSAW</city>
+            <city>WARSZAWA</city>
             <city>VITEBSK</city>
         </land>
         <sea></sea>
     </city>
     <city>
         <name>GDANSK</name>
+        <x>196</x>
+        <y>729</y>
+        <grid>2</grid>
+        <flight></flight>
+        <color>RED</color>
         <land>
-            <city>WARSAW</city>
+            <city>WARSZAWA</city>
             <city>POZNAN</city>
         </land>
         <sea></sea>
     </city>
     <city>
         <name>KOBENHAVN</name>
+        <x>63</x>
+        <y>680</y>
+        <grid>2</grid>
+        <flight>2</flight>
+        <color>RED</color>
         <land>
             <city>MALMO</city>
             <city>ARHUS</city>
@@ -429,6 +665,11 @@
     </city>
     <city>
         <name>HAMMERFEST</name>
+        <x>193</x>
+        <y>81</y>
+        <grid>2</grid>
+        <flight></flight>
+        <color>RED</color>
         <land>
             <city>ROVANIEMI</city>
         </land>
@@ -439,6 +680,11 @@
     </city>
     <city>
         <name>ROVANIEMI</name>
+        <x>251</x>
+        <y>230</y>
+        <grid>2</grid>
+        <flight>2</flight>
+        <color>RED</color>
         <land>
             <city>HAMMERFEST</city>
             <city>LULEA</city>
@@ -448,6 +694,11 @@
     </city>
     <city>
         <name>SHETLAND_ISLANDS</name>
+        <x>380</x>
+        <y>489</y>
+        <grid>1</grid>
+        <flight></flight>
+        <color>RED</color>
         <land></land>
         <sea>
             <city>FAROER</city>
@@ -456,6 +707,11 @@
     </city>
     <city>
         <name>STOCKHOLM</name>
+        <x>164</x>
+        <y>533</y>
+        <grid>2</grid>
+        <flight>2</flight>
+        <color>RED</color>
         <land>
             <city>GAVLE</city>
             <city>KARLSTAD</city>
@@ -468,6 +724,11 @@
     </city>
     <city>
         <name>HAMBURG</name>
+        <x>595</x>
+        <y>778</y>
+        <grid>1</grid>
+        <flight></flight>
+        <color>RED</color>
         <land>
             <city>BREMEN</city>
             <city>HANNOVER</city>
@@ -478,6 +739,11 @@
     </city>
     <city>
         <name>OSLO</name>
+        <x>23</x>
+        <y>517</y>
+        <grid>2</grid>
+        <flight>2</flight>
+        <color>RED</color>
         <land>
             <city>BERGEN</city>
             <city>STAVANGER</city>
@@ -491,6 +757,11 @@
     </city>
     <city>
         <name>HELSINKI</name>
+        <x>298</x>
+        <y>475</y>
+        <grid>2</grid>
+        <flight>2</flight>
+        <color>RED</color>
         <land>
             <city>TAMPERE</city>
             <city>LENINGRAD</city>
@@ -501,6 +772,11 @@
     </city>
     <city>
         <name>LENINGRAD</name>
+        <x>400</x>
+        <y>461</y>
+        <grid>2</grid>
+        <flight>2</flight>
+        <color>RED</color>
         <land>
             <city>HELSINKI</city>
             <city>TALLIN</city>
@@ -511,7 +787,12 @@
         <sea></sea>
     </city>
     <city>
-        <name>WARSAW</name>
+        <name>WARSZAWA</name>
+        <x>267</x>
+        <y>792</y>
+        <grid>2</grid>
+        <flight>3</flight>
+        <color>RED</color>
         <land>
             <city>RIGA</city>
             <city>MINSK</city>
@@ -523,6 +804,11 @@
     </city>
     <city>
         <name>BERLIN</name>
+        <x>84</x>
+        <y>795</y>
+        <grid>2</grid>
+        <flight>3</flight>
+        <color>RED</color>
         <land>
             <city>BREMEN</city>
             <city>ROSTOCK</city>
@@ -534,6 +820,11 @@
     </city>
     <city>
         <name>MOSKVA</name>
+        <x>549</x>
+        <y>574</y>
+        <grid>2</grid>
+        <flight>2</flight>
+        <color>RED</color>
         <land>
             <city>LENINGRAD</city>
             <city>SMOLENSK</city>
@@ -544,6 +835,11 @@
     </city>
     <city>
         <name>DUBLIN</name>
+        <x>211</x>
+        <y>732</y>
+        <grid>1</grid>
+        <flight>1</flight>
+        <color>RED</color>
         <land>
             <city>BELFAST</city>
             <city>CORK</city>
@@ -554,6 +850,11 @@
     </city>
     <city>
         <name>AMSTERDAM</name>
+        <x>481</x>
+        <y>23</y>
+        <grid>3</grid>
+        <flight>4</flight>
+        <color>RED</color>
         <land>
             <city>GRONINGEN</city>
             <city>KOLN</city>
@@ -563,6 +864,11 @@
     </city>
     <city>
         <name>THESSALONIKI</name>
+        <x>392</x>
+        <y>436</y>
+        <grid>4</grid>
+        <flight></flight>
+        <color>YELLOW</color>
         <land>
             <city>SKOPJE</city>
             <city>EDIRNE</city>
@@ -572,6 +878,11 @@
     </city>
     <city>
         <name>PISA</name>
+        <x>11</x>
+        <y>354</y>
+        <grid>4</grid>
+        <flight></flight>
+        <color>YELLOW</color>
         <land>
             <city>FIRENZE</city>
             <city>ROMA</city>
@@ -581,6 +892,11 @@
     </city>
     <city>
         <name>SARAJEVO</name>
+        <x>238</x>
+        <y>328</y>
+        <grid>4</grid>
+        <flight></flight>
+        <color>YELLOW</color>
         <land>
             <city>ZAGREB</city>
             <city>BEOGRAD</city>
@@ -590,6 +906,11 @@
     </city>
     <city>
         <name>SPLIT</name>
+        <x>188</x>
+        <y>349</y>
+        <grid>4</grid>
+        <flight></flight>
+        <color>YELLOW</color>
         <land>
             <city>ZAGREB</city>
             <city>TRIESTE</city>
@@ -601,6 +922,11 @@
     </city>
     <city>
         <name>BIARRITZ</name>
+        <x>273</x>
+        <y>341</y>
+        <grid>3</grid>
+        <flight></flight>
+        <color>YELLOW</color>
         <land>
             <city>BORDEAUX</city>
             <city>TOULOUSE</city>
@@ -610,6 +936,11 @@
     </city>
     <city>
         <name>TORINO</name>
+        <x>540</x>
+        <y>300</y>
+        <grid>3</grid>
+        <flight></flight>
+        <color>YELLOW</color>
         <land>
             <city>MILANO</city>
             <city>LYON</city>
@@ -618,6 +949,11 @@
     </city>
     <city>
         <name>TOULOUSE</name>
+        <x>356</x>
+        <y>348</y>
+        <grid>3</grid>
+        <flight></flight>
+        <color>YELLOW</color>
         <land>
             <city>BORDEAUX</city>
             <city>BIARRITZ</city>
@@ -627,6 +963,11 @@
     </city>
     <city>
         <name>PESCARA</name>
+        <x>126</x>
+        <y>399</y>
+        <grid>4</grid>
+        <flight></flight>
+        <color>YELLOW</color>
         <land>
             <city>ANCONA</city>
             <city>ROMA</city>
@@ -636,6 +977,11 @@
     </city>
     <city>
         <name>CADIZ</name>
+        <x>99</x>
+        <y>596</y>
+        <grid>3</grid>
+        <flight></flight>
+        <color>YELLOW</color>
         <land>
             <city>SEVILLA</city>
         </land>
@@ -646,6 +992,11 @@
     </city>
     <city>
         <name>VALLADOLID</name>
+        <x>171</x>
+        <y>396</y>
+        <grid>3</grid>
+        <flight></flight>
+        <color>YELLOW</color>
         <land>
             <city>SANTANDER</city>
             <city>LA_CORUNA</city>
@@ -655,6 +1006,11 @@
     </city>
     <city>
         <name>SASSARI</name>
+        <x>561</x>
+        <y>469</y>
+        <grid>3</grid>
+        <flight></flight>
+        <color>YELLOW</color>
         <land>
             <city>CAGLIARI</city>
         </land>
@@ -664,6 +1020,11 @@
     </city>
     <city>
         <name>CORDOBA</name>
+        <x>150</x>
+        <y>544</y>
+        <grid>3</grid>
+        <flight></flight>
+        <color>YELLOW</color>
         <land>
             <city>MADRID</city>
             <city>GRANADA</city>
@@ -673,6 +1034,11 @@
     </city>
     <city>
         <name>SKOPJE</name>
+        <x>341</x>
+        <y>393</y>
+        <grid>4</grid>
+        <flight></flight>
+        <color>YELLOW</color>
         <land>
             <city>NIS</city>
             <city>THESSALONIKI</city>
@@ -681,6 +1047,11 @@
     </city>
     <city>
         <name>ALICANTE</name>
+        <x>282</x>
+        <y>547</y>
+        <grid>3</grid>
+        <flight></flight>
+        <color>YELLOW</color>
         <land>
             <city>VALENCIA</city>
             <city>MADRID</city>
@@ -690,6 +1061,11 @@
     </city>
     <city>
         <name>SAN_SEBASTIAN</name>
+        <x>255</x>
+        <y>350</y>
+        <grid>3</grid>
+        <flight></flight>
+        <color>YELLOW</color>
         <land>
             <city>BIARRITZ</city>
             <city>SANTANDER</city>
@@ -699,6 +1075,11 @@
     </city>
     <city>
         <name>BOLOGNA</name>
+        <x>34</x>
+        <y>323</y>
+        <grid>4</grid>
+        <flight></flight>
+        <color>YELLOW</color>
         <land>
             <city>VENEZIA</city>
             <city>BOLZANO</city>
@@ -710,6 +1091,11 @@
     </city>
     <city>
         <name>MESSINA</name>
+        <x>174</x>
+        <y>569</y>
+        <grid>4</grid>
+        <flight></flight>
+        <color>YELLOW</color>
         <land>
             <city>NAPOLI</city>
             <city>CATANIA</city>
@@ -719,6 +1105,11 @@
     </city>
     <city>
         <name>GENOVA</name>
+        <x>571</x>
+        <y>325</y>
+        <grid>3</grid>
+        <flight></flight>
+        <color>YELLOW</color>
         <land>
             <city>MILANO</city>
             <city>NICE</city>
@@ -731,6 +1122,11 @@
     </city>
     <city>
         <name>VALENCIA</name>
+        <x>289</x>
+        <y>503</y>
+        <grid>3</grid>
+        <flight></flight>
+        <color>YELLOW</color>
         <land>
             <city>BARCELONA</city>
             <city>MADRID</city>
@@ -743,6 +1139,11 @@
     </city>
     <city>
         <name>PORTO</name>
+        <x>57</x>
+        <y>399</y>
+        <grid>3</grid>
+        <flight></flight>
+        <color>YELLOW</color>
         <land>
             <city>LA_CORUNA</city>
             <city>COIMBRA</city>
@@ -755,6 +1156,11 @@
     </city>
     <city>
         <name>MALAGA</name>
+        <x>160</x>
+        <y>596</y>
+        <grid>3</grid>
+        <flight></flight>
+        <color>YELLOW</color>
         <land>
             <city>SEVILLA</city>
             <city>GRANADA</city>
@@ -766,6 +1172,11 @@
     </city>
     <city>
         <name>COIMBRA</name>
+        <x>56</x>
+        <y>433</y>
+        <grid>3</grid>
+        <flight></flight>
+        <color>YELLOW</color>
         <land>
             <city>PORTO</city>
             <city>LISBOA</city>
@@ -774,6 +1185,11 @@
     </city>
     <city>
         <name>SANTANDER</name>
+        <x>207</x>
+        <y>333</y>
+        <grid>3</grid>
+        <flight></flight>
+        <color>YELLOW</color>
         <land>
             <city>SAN_SEBASTIAN</city>
             <city>VALLADOLID</city>
@@ -783,6 +1199,11 @@
     </city>
     <city>
         <name>LA_CORUNA</name>
+        <x>80</x>
+        <y>315</y>
+        <grid>3</grid>
+        <flight></flight>
+        <color>YELLOW</color>
         <land>
             <city>SANTANDER</city>
             <city>VALLADOLID</city>
@@ -792,6 +1213,11 @@
     </city>
     <city>
         <name>PALERMO</name>
+        <x>109</x>
+        <y>569</y>
+        <grid>4</grid>
+        <flight></flight>
+        <color>YELLOW</color>
         <land>
             <city>MESSINA</city>
         </land>
@@ -801,6 +1227,11 @@
     </city>
     <city>
         <name>BADAJOZ</name>
+        <x>93</x>
+        <y>496</y>
+        <grid>3</grid>
+        <flight></flight>
+        <color>YELLOW</color>
         <land>
             <city>MADRID</city>
             <city>SEVILLA</city>
@@ -810,6 +1241,11 @@
     </city>
     <city>
         <name>PATRAI</name>
+        <x>372</x>
+        <y>543</y>
+        <grid>4</grid>
+        <flight></flight>
+        <color>YELLOW</color>
         <land>
             <city>ATHINAI</city>
         </land>
@@ -819,6 +1255,11 @@
     </city>
     <city>
         <name>ZARAGOZA</name>
+        <x>281</x>
+        <y>417</y>
+        <grid>3</grid>
+        <flight></flight>
+        <color>YELLOW</color>
         <land>
             <city>SAN_SEBASTIAN</city>
             <city>BARCELONA</city>
@@ -828,6 +1269,11 @@
     </city>
     <city>
         <name>EDIRNE</name>
+        <x>498</x>
+        <y>376</y>
+        <grid>4</grid>
+        <flight></flight>
+        <color>YELLOW</color>
         <land>
             <city>ISTANBUL</city>
             <city>PLOVDIV</city>
@@ -837,6 +1283,11 @@
     </city>
     <city>
         <name>VARNA</name>
+        <x>518</x>
+        <y>310</y>
+        <grid>4</grid>
+        <flight></flight>
+        <color>YELLOW</color>
         <land>
             <city>BUCURESTI</city>
             <city>SOFIJA</city>
@@ -848,6 +1299,11 @@
     </city>
     <city>
         <name>TARANTO</name>
+        <x>219</x>
+        <y>464</y>
+        <grid>4</grid>
+        <flight></flight>
+        <color>YELLOW</color>
         <land>
             <city>BARI</city>
             <city>NAPOLI</city>
@@ -858,6 +1314,11 @@
     </city>
     <city>
         <name>ANCONA</name>
+        <x>101</x>
+        <y>357</y>
+        <grid>4</grid>
+        <flight></flight>
+        <color>YELLOW</color>
         <land>
             <city>BOLOGNA</city>
             <city>ROMA</city>
@@ -870,6 +1331,11 @@
     </city>
     <city>
         <name>NARBONNE</name>
+        <x>400</x>
+        <y>365</y>
+        <grid>3</grid>
+        <flight></flight>
+        <color>YELLOW</color>
         <land>
             <city>CLERMONT-FERRAND</city>
             <city>TOULOUSE</city>
@@ -880,6 +1346,11 @@
     </city>
     <city>
         <name>NIS</name>
+        <x>343</x>
+        <y>340</y>
+        <grid>4</grid>
+        <flight></flight>
+        <color>YELLOW</color>
         <land>
             <city>BEOGRAD</city>
             <city>SKOPJE</city>
@@ -889,6 +1360,11 @@
     </city>
     <city>
         <name>LARISA</name>
+        <x>381</x>
+        <y>477</y>
+        <grid>4</grid>
+        <flight></flight>
+        <color>YELLOW</color>
         <land>
             <city>THESSALONIKI</city>
             <city>ATHINAI</city>
@@ -897,6 +1373,11 @@
     </city>
     <city>
         <name>PLOVDIV</name>
+        <x>432</x>
+        <y>370</y>
+        <grid>4</grid>
+        <flight></flight>
+        <color>YELLOW</color>
         <land>
             <city>SOFIJA</city>
             <city>EDIRNE</city>
@@ -905,6 +1386,11 @@
     </city>
     <city>
         <name>PALMA_MALLORCA</name>
+        <x>388</x>
+        <y>508</y>
+        <grid>3</grid>
+        <flight>5</flight>
+        <color>YELLOW</color>
         <land></land>
         <sea>
             <city>BARCELONA</city>
@@ -913,6 +1399,11 @@
     </city>
     <city>
         <name>SOFIJA</name>
+        <x>389</x>
+        <y>355</y>
+        <grid>4</grid>
+        <flight>6</flight>
+        <color>YELLOW</color>
         <land>
             <city>NIS</city>
             <city>BUCURESTI</city>
@@ -923,6 +1414,11 @@
     </city>
     <city>
         <name>NAPOLI</name>
+        <x>130</x>
+        <y>462</y>
+        <grid>4</grid>
+        <flight></flight>
+        <color>YELLOW</color>
         <land>
             <city>ROMA</city>
             <city>TARANTO</city>
@@ -936,11 +1432,21 @@
     </city>
     <city>
         <name>TIRANE</name>
+        <x>301</x>
+        <y>426</y>
+        <grid>4</grid>
+        <flight>6</flight>
+        <color>YELLOW</color>
         <land></land>
         <sea></sea>
     </city>
     <city>
         <name>BARI</name>
+        <x>208</x>
+        <y>445</y>
+        <grid>4</grid>
+        <flight></flight>
+        <color>YELLOW</color>
         <land>
             <city>PESCARA</city>
             <city>TARANTO</city>
@@ -949,6 +1455,11 @@
     </city>
     <city>
         <name>LISBOA</name>
+        <x>29</x>
+        <y>480</y>
+        <grid>3</grid>
+        <flight>5</flight>
+        <color>YELLOW</color>
         <land>
             <city>COIMBRA</city>
             <city>BADAJOZ</city>
@@ -960,6 +1471,11 @@
     </city>
     <city>
         <name>ISTANBUL</name>
+        <x>567</x>
+        <y>388</y>
+        <grid>4</grid>
+        <flight>6</flight>
+        <color>YELLOW</color>
         <land>
             <city>EDIRNE</city>
         </land>
@@ -970,6 +1486,11 @@
     </city>
     <city>
         <name>MILANO</name>
+        <x>580</x>
+        <y>285</y>
+        <grid>3</grid>
+        <flight>5</flight>
+        <color>YELLOW</color>
         <land>
             <city>BOLOGNA</city>
             <city>ZURICH</city>
@@ -980,6 +1501,11 @@
     </city>
     <city>
         <name>BORDEAUX</name>
+        <x>308</x>
+        <y>292</y>
+        <grid>3</grid>
+        <flight>5</flight>
+        <color>YELLOW</color>
         <land>
             <city>NANTES</city>
             <city>TOURS</city>
@@ -994,6 +1520,11 @@
     </city>
     <city>
         <name>DUBROVNIK</name>
+        <x>235</x>
+        <y>376</y>
+        <grid>4</grid>
+        <flight></flight>
+        <color>YELLOW</color>
         <land>
             <city>SARAJEVO</city>
             <city>SPLIT</city>
@@ -1002,6 +1533,11 @@
     </city>
     <city>
         <name>CATANIA</name>
+        <x>165</x>
+        <y>593</y>
+        <grid>4</grid>
+        <flight></flight>
+        <color>YELLOW</color>
         <land>
             <city>MESSINA</city>
         </land>
@@ -1009,6 +1545,11 @@
     </city>
     <city>
         <name>VENEZIA</name>
+        <x>62</x>
+        <y>286</y>
+        <grid>4</grid>
+        <flight></flight>
+        <color>YELLOW</color>
         <land>
             <city>TRIESTE</city>
             <city>BOLOGNA</city>
@@ -1017,6 +1558,11 @@
     </city>
     <city>
         <name>SEVILLA</name>
+        <x>109</x>
+        <y>558</y>
+        <grid>3</grid>
+        <flight></flight>
+        <color>YELLOW</color>
         <land>
             <city>BADAJOZ</city>
             <city>CORDOBA</city>
@@ -1027,6 +1573,11 @@
     </city>
     <city>
         <name>GRANADA</name>
+        <x>187</x>
+        <y>577</y>
+        <grid>3</grid>
+        <flight></flight>
+        <color>YELLOW</color>
         <land>
             <city>MADRID</city>
             <city>CORDOBA</city>
@@ -1037,6 +1588,11 @@
     </city>
     <city>
         <name>BEOGRAD</name>
+        <x>295</x>
+        <y>287</y>
+        <grid>4</grid>
+        <flight>6</flight>
+        <color>YELLOW</color>
         <land>
             <city>BUDAPEST</city>
             <city>ZAGREB</city>
@@ -1047,6 +1603,11 @@
     </city>
     <city>
         <name>CAGLIARI</name>
+        <x>581</x>
+        <y>531</y>
+        <grid>3</grid>
+        <flight></flight>
+        <color>YELLOW</color>
         <land>
             <city>BUDAPEST</city>
             <city>ZAGREB</city>
@@ -1057,6 +1618,11 @@
     </city>
     <city>
         <name>FIRENZE</name>
+        <x>33</x>
+        <y>350</y>
+        <grid>4</grid>
+        <flight></flight>
+        <color>YELLOW</color>
         <land>
             <city>BOLOGNA</city>
             <city>ROMA</city>
@@ -1066,6 +1632,11 @@
     </city>
     <city>
         <name>ATHINAI</name>
+        <x>439</x>
+        <y>540</y>
+        <grid>4</grid>
+        <flight>6</flight>
+        <color>YELLOW</color>
         <land>
             <city>LARISA</city>
             <city>PATRAI</city>
@@ -1077,6 +1648,11 @@
     </city>
     <city>
         <name>NICE</name>
+        <x>520</x>
+        <y>351</y>
+        <grid>3</grid>
+        <flight></flight>
+        <color>YELLOW</color>
         <land>
             <city>GENOVA</city>
             <city>MARSEILLE</city>
@@ -1085,6 +1661,11 @@
     </city>
     <city>
         <name>MARSEILLE</name>
+        <x>469</x>
+        <y>367</y>
+        <grid>3</grid>
+        <flight></flight>
+        <color>YELLOW</color>
         <land>
             <city>NICE</city>
             <city>LYON</city>
@@ -1098,6 +1679,11 @@
     </city>
     <city>
         <name>MADRID</name>
+        <x>197</x>
+        <y>453</y>
+        <grid>3</grid>
+        <flight>5</flight>
+        <color>YELLOW</color>
         <land>
             <city>VALLADOLID</city>
             <city>BADAJOZ</city>
@@ -1111,6 +1697,11 @@
     </city>
     <city>
         <name>BARCELONA</name>
+        <x>374</x>
+        <y>434</y>
+        <grid>3</grid>
+        <flight>5</flight>
+        <color>YELLOW</color>
         <land>
             <city>NARBONNE</city>
             <city>ZARAGOZA</city>
@@ -1124,6 +1715,11 @@
     </city>
     <city>
         <name>ROMA</name>
+        <x>78</x>
+        <y>417</y>
+        <grid>4</grid>
+        <flight>5</flight>
+        <color>YELLOW</color>
         <land>
             <city>PISA</city>
             <city>FIRENZE</city>
@@ -1135,6 +1731,11 @@
     </city>
     <city>
         <name>AJACCIO</name>
+        <x>562</x>
+        <y>423</y>
+        <grid>3</grid>
+        <flight></flight>
+        <color>YELLOW</color>
         <land></land>
         <sea>
             <city>MARSEILLE</city>
@@ -1145,6 +1746,11 @@
     </city>
     <city>
         <name>NURNBERG</name>
+        <x>27</x>
+        <y>128</y>
+        <grid>4</grid>
+        <flight></flight>
+        <color>GREEN</color>
         <land>
             <city>MUNCHEN</city>
             <city>LINZ</city>
@@ -1157,6 +1763,11 @@
     </city>
     <city>
         <name>BRNO</name>
+        <x>169</x>
+        <y>133</y>
+        <grid>4</grid>
+        <flight></flight>
+        <color>GREEN</color>
         <land>
             <city>WROCLAW</city>
             <city>PRAHA</city>
@@ -1168,6 +1779,11 @@
     </city>
     <city>
         <name>CONSTANTA</name>
+        <x>529</x>
+        <y>271</y>
+        <grid>4</grid>
+        <flight></flight>
+        <color>GREEN</color>
         <land>
             <city>BUCURESTI</city>
         </land>
@@ -1178,6 +1794,11 @@
     </city>
     <city>
         <name>NANCY</name>
+        <x>495</x>
+        <y>152</y>
+        <grid>3</grid>
+        <flight></flight>
+        <color>GREEN</color>
         <land>
             <city>LUXEMBOURG</city>
             <city>REIMS</city>
@@ -1188,6 +1809,11 @@
     </city>
     <city>
         <name>CLERMONT-FERRAND</name>
+        <x>409</x>
+        <y>264</y>
+        <grid>3</grid>
+        <flight></flight>
+        <color>GREEN</color>
         <land>
             <city>LUXEMBOURG</city>
             <city>REIMS</city>
@@ -1198,6 +1824,11 @@
     </city>
     <city>
         <name>LYON</name>
+        <x>459</x>
+        <y>270</y>
+        <grid>3</grid>
+        <flight></flight>
+        <color>GREEN</color>
         <land>
             <city>DIJON</city>
             <city>CLERMONT-FERRAND</city>
@@ -1209,6 +1840,11 @@
     </city>
     <city>
         <name>STUTTGART</name>
+        <x>575</x>
+        <y>154</y>
+        <grid>3</grid>
+        <flight></flight>
+        <color>GREEN</color>
         <land>
             <city>FIRENZE</city>
             <city>STRASBOURG</city>
@@ -1218,6 +1854,11 @@
     </city>
     <city>
         <name>REIMS</name>
+        <x>446</x>
+        <y>129</y>
+        <grid>3</grid>
+        <flight></flight>
+        <color>GREEN</color>
         <land>
             <city>BRUXELLES</city>
             <city>PARIS</city>
@@ -1227,6 +1868,11 @@
     </city>
     <city>
         <name>BASEL</name>
+        <x>537</x>
+        <y>203</y>
+        <grid>3</grid>
+        <flight></flight>
+        <color>GREEN</color>
         <land>
             <city>STRASBOURG</city>
             <city>DIJON</city>
@@ -1237,6 +1883,11 @@
     </city>
     <city>
         <name>ODESSA</name>
+        <x>559</x>
+        <y>162</y>
+        <grid>4</grid>
+        <flight></flight>
+        <color>GREEN</color>
         <land>
             <city>VINNICA</city>
             <city>GALATI</city>
@@ -1247,6 +1898,11 @@
     </city>
     <city>
         <name>LEIPZIG</name>
+        <x>51</x>
+        <y>54</y>
+        <grid>4</grid>
+        <flight></flight>
+        <color>GREEN</color>
         <land>
             <city>DRESDEN</city>
             <city>KASSEL</city>
@@ -1256,6 +1912,11 @@
     </city>
     <city>
         <name>CLUJ-NAPOCA</name>
+        <x>370</x>
+        <y>197</y>
+        <grid>4</grid>
+        <flight></flight>
+        <color>GREEN</color>
         <land>
             <city>BUDAPEST</city>
             <city>BUCURESTI</city>
@@ -1265,6 +1926,11 @@
     </city>
     <city>
         <name>PLZEN</name>
+        <x>80</x>
+        <y>110</y>
+        <grid>4</grid>
+        <flight></flight>
+        <color>GREEN</color>
         <land>
             <city>PRAHA</city>
             <city>NURNBERG</city>
@@ -1273,6 +1939,11 @@
     </city>
     <city>
         <name>DOVER</name>
+        <x>381</x>
+        <y>51</y>
+        <grid>3</grid>
+        <flight></flight>
+        <color>GREEN</color>
         <land>
             <city>LONDON</city>
             <city>CALAIS</city>
@@ -1281,6 +1952,11 @@
     </city>
     <city>
         <name>ZAGREB</name>
+        <x>163</x>
+        <y>259</y>
+        <grid>4</grid>
+        <flight></flight>
+        <color>GREEN</color>
         <land>
             <city>GRAZ</city>
             <city>SALZBURG</city>
@@ -1294,6 +1970,11 @@
     </city>
     <city>
         <name>RENNES</name>
+        <x>291</x>
+        <y>159</y>
+        <grid>3</grid>
+        <flight></flight>
+        <color>GREEN</color>
         <land>
             <city>BREST</city>
             <city>PARIS</city>
@@ -1303,6 +1984,11 @@
     </city>
     <city>
         <name>TRIESTE</name>
+        <x>105</x>
+        <y>274</y>
+        <grid>4</grid>
+        <flight></flight>
+        <color>GREEN</color>
         <land>
             <city>ZAGREB</city>
             <city>SPLIT</city>
@@ -1312,6 +1998,11 @@
     </city>
     <city>
         <name>LIMOGES</name>
+        <x>363</x>
+        <y>257</y>
+        <grid>3</grid>
+        <flight></flight>
+        <color>GREEN</color>
         <land>
             <city>BOURGES</city>
             <city>BORDEAUX</city>
@@ -1321,6 +2012,11 @@
     </city>
     <city>
         <name>GALATI</name>
+        <x>497</x>
+        <y>221</y>
+        <grid>4</grid>
+        <flight></flight>
+        <color>GREEN</color>
         <land>
             <city>CERNOVCY</city>
             <city>CLUJ-NAPOCA</city>
@@ -1331,6 +2027,11 @@
     </city>
     <city>
         <name>KASSEL</name>
+        <x>582</x>
+        <y>54</y>
+        <grid>3</grid>
+        <flight></flight>
+        <color>GREEN</color>
         <land>
             <city>HANNOVER</city>
             <city>KOLN</city>
@@ -1342,6 +2043,11 @@
     </city>
     <city>
         <name>WROCLAW</name>
+        <x>171</x>
+        <y>53</y>
+        <grid>4</grid>
+        <flight></flight>
+        <color>GREEN</color>
         <land>
             <city>POZNAN</city>
             <city>DRESDEN</city>
@@ -1354,6 +2060,11 @@
     </city>
     <city>
         <name>DIJON</name>
+        <x>464</x>
+        <y>209</y>
+        <grid>3</grid>
+        <flight></flight>
+        <color>GREEN</color>
         <land>
             <city>PARIS</city>
             <city>LYON</city>
@@ -1364,6 +2075,11 @@
     </city>
     <city>
         <name>TOURS</name>
+        <x>350</x>
+        <y>196</y>
+        <grid>3</grid>
+        <flight></flight>
+        <color>GREEN</color>
         <land>
             <city>ORLEANS</city>
             <city>NANTES</city>
@@ -1373,6 +2089,11 @@
     </city>
     <city>
         <name>LINZ</name>
+        <x>107</x>
+        <y>169</y>
+        <grid>4</grid>
+        <flight></flight>
+        <color>GREEN</color>
         <land>
             <city>PRAHA</city>
             <city>NURNBERG</city>
@@ -1383,6 +2104,11 @@
     </city>
     <city>
         <name>LE_HAVRE</name>
+        <x>348</x>
+        <y>110</y>
+        <grid>3</grid>
+        <flight></flight>
+        <color>GREEN</color>
         <land>
             <city>CALAIS</city>
             <city>PARIS</city>
@@ -1394,6 +2120,11 @@
     </city>
     <city>
         <name>SALZBURG</name>
+        <x>80</x>
+        <y>190</y>
+        <grid>4</grid>
+        <flight></flight>
+        <color>GREEN</color>
         <land>
             <city>LINZ</city>
             <city>MUNCHEN</city>
@@ -1404,6 +2135,11 @@
     </city>
     <city>
         <name>LILLE</name>
+        <x>421</x>
+        <y>83</y>
+        <grid>3</grid>
+        <flight></flight>
+        <color>GREEN</color>
         <land>
             <city>BRUXELLES</city>
             <city>CALAIS</city>
@@ -1413,6 +2149,11 @@
     </city>
     <city>
         <name>GRAZ</name>
+        <x>142</x>
+        <y>218</y>
+        <grid>4</grid>
+        <flight></flight>
+        <color>GREEN</color>
         <land>
             <city>WIEN</city>
             <city>BUDAPEST</city>
@@ -1422,6 +2163,11 @@
     </city>
     <city>
         <name>CALAIS</name>
+        <x>393</x>
+        <y>63</y>
+        <grid>3</grid>
+        <flight></flight>
+        <color>GREEN</color>
         <land>
             <city>DOVER</city>
             <city>LE_HAVRE</city>
@@ -1432,8 +2178,13 @@
     </city>
     <city>
         <name>KRAKOV</name>
+        <x>251</x>
+        <y>88</y>
+        <grid>4</grid>
+        <flight></flight>
+        <color>GREEN</color>
         <land>
-            <city>WARSAW</city>
+            <city>WARSZAWA</city>
             <city>WROCLAW</city>
             <city>BRNO</city>
             <city>L'VOV</city>
@@ -1442,6 +2193,11 @@
     </city>
     <city>
         <name>L'VOV</name>
+        <x>349</x>
+        <y>80</y>
+        <grid>4</grid>
+        <flight></flight>
+        <color>GREEN</color>
         <land>
             <city>KRAKOV</city>
             <city>MISKOLC</city>
@@ -1452,6 +2208,11 @@
     </city>
     <city>
         <name>CERNOVCY</name>
+        <x>418</x>
+        <y>129</y>
+        <grid>4</grid>
+        <flight></flight>
+        <color>GREEN</color>
         <land>
             <city>L'VOV</city>
             <city>GALATI</city>
@@ -1460,8 +2221,13 @@
     </city>
     <city>
         <name>LODZ</name>
+        <x>226</x>
+        <y>25</y>
+        <grid>4</grid>
+        <flight></flight>
+        <color>GREEN</color>
         <land>
-            <city>WARSAW</city>
+            <city>WARSZAWA</city>
             <city>POZNAN</city>
             <city>WROCLAW</city>
         </land>
@@ -1469,6 +2235,11 @@
     </city>
     <city>
         <name>CHARKOV</name>
+        <x>561</x>
+        <y>41</y>
+        <grid>4</grid>
+        <flight></flight>
+        <color>GREEN</color>
         <land>
             <city>MOSKVA</city>
             <city>KIJEV</city>
@@ -1478,6 +2249,11 @@
     </city>
     <city>
         <name>ROTTERDAM</name>
+        <x>463</x>
+        <y>38</y>
+        <grid>3</grid>
+        <flight></flight>
+        <color>GREEN</color>
         <land>
             <city>AMSTERDAM</city>
             <city>BRUXELLES</city>
@@ -1488,6 +2264,11 @@
     </city>
     <city>
         <name>PLYMOUTH</name>
+        <x>245</x>
+        <y>64</y>
+        <grid>3</grid>
+        <flight></flight>
+        <color>GREEN</color>
         <land>
             <city>LONDON</city>
         </land>
@@ -1498,6 +2279,11 @@
     </city>
     <city>
         <name>NANTES</name>
+        <x>289</x>
+        <y>192</y>
+        <grid>3</grid>
+        <flight></flight>
+        <color>GREEN</color>
         <land>
             <city>RENNES</city>
             <city>TOURS</city>
@@ -1507,6 +2293,11 @@
     </city>
     <city>
         <name>VINNICA</name>
+        <x>457</x>
+        <y>93</y>
+        <grid>4</grid>
+        <flight></flight>
+        <color>GREEN</color>
         <land>
             <city>KIJEV</city>
             <city>L'VOV</city>
@@ -1516,6 +2307,11 @@
     </city>
     <city>
         <name>KIJEV</name>
+        <x>474</x>
+        <y>48</y>
+        <grid>4</grid>
+        <flight></flight>
+        <color>GREEN</color>
         <land>
             <city>SMOLENSK</city>
             <city>VINNICA</city>
@@ -1525,6 +2321,11 @@
     </city>
     <city>
         <name>BOURGES</name>
+        <x>370</x>
+        <y>225</y>
+        <grid>3</grid>
+        <flight></flight>
+        <color>GREEN</color>
         <land>
             <city>ORLEANS</city>
             <city>LIMOGES</city>
@@ -1533,6 +2334,11 @@
     </city>
     <city>
         <name>MISKOLC</name>
+        <x>286</x>
+        <y>155</y>
+        <grid>4</grid>
+        <flight></flight>
+        <color>GREEN</color>
         <land>
             <city>L'VOV</city>
             <city>BRNO</city>
@@ -1542,6 +2348,11 @@
     </city>
     <city>
         <name>BOLZANO</name>
+        <x>36</x>
+        <y>242</y>
+        <grid>4</grid>
+        <flight></flight>
+        <color>GREEN</color>
         <land>
             <city>INNSBRUCK</city>
             <city>BOLZANO</city>
@@ -1550,6 +2361,11 @@
     </city>
     <city>
         <name>BUCURESTI</name>
+        <x>456</x>
+        <y>274</y>
+        <grid>4</grid>
+        <flight>6</flight>
+        <color>GREEN</color>
         <land>
             <city>CLUJ-NAPOCA</city>
             <city>SOFIJA</city>
@@ -1561,6 +2377,11 @@
     </city>
     <city>
         <name>GENEVE</name>
+        <x>491</x>
+        <y>254</y>
+        <grid>3</grid>
+        <flight></flight>
+        <color>GREEN</color>
         <land>
             <city>LYON</city>
             <city>BERN</city>
@@ -1569,6 +2390,11 @@
     </city>
     <city>
         <name>STRASBOURG</name>
+        <x>542</x>
+        <y>157</y>
+        <grid>3</grid>
+        <flight></flight>
+        <color>GREEN</color>
         <land>
             <city>FRANKFURT</city>
             <city>NANCY</city>
@@ -1579,6 +2405,11 @@
     </city>
     <city>
         <name>ZURICH</name>
+        <x>564</x>
+        <y>207</y>
+        <grid>3</grid>
+        <flight>4</flight>
+        <color>GREEN</color>
         <land>
             <city>BASEL</city>
             <city>MILANO</city>
@@ -1588,6 +2419,11 @@
     </city>
     <city>
         <name>PARIS</name>
+        <x>402</x>
+        <y>141</y>
+        <grid>3</grid>
+        <flight>4</flight>
+        <color>GREEN</color>
         <land>
             <city>LE_HAVRE</city>
             <city>RENNES</city>
@@ -1602,6 +2438,11 @@
     </city>
     <city>
         <name>PRAHA</name>
+        <x>116</x>
+        <y>99</y>
+        <grid>4</grid>
+        <flight>3</flight>
+        <color>GREEN</color>
         <land>
             <city>WROCLAW</city>
             <city>DRESDEN</city>
@@ -1614,6 +2455,11 @@
     </city>
     <city>
         <name>ORLEANS</name>
+        <x>382</x>
+        <y>180</y>
+        <grid>3</grid>
+        <flight></flight>
+        <color>GREEN</color>
         <land>
             <city>PARIS</city>
             <city>TOURS</city>
@@ -1623,6 +2469,11 @@
     </city>
     <city>
         <name>KOLN</name>
+        <x>516</x>
+        <y>59</y>
+        <grid>3</grid>
+        <flight></flight>
+        <color>GREEN</color>
         <land>
             <city>HAMBURG</city>
             <city>AMSTERDAM</city>
@@ -1635,6 +2486,11 @@
     </city>
     <city>
         <name>BERN</name>
+        <x>531</x>
+        <y>225</y>
+        <grid>3</grid>
+        <flight></flight>
+        <color>GREEN</color>
         <land>
             <city>BASEL</city>
             <city>GENEVE</city>
@@ -1643,6 +2499,11 @@
     </city>
     <city>
         <name>FRANKFURT</name>
+        <x>570</x>
+        <y>102</y>
+        <grid>3</grid>
+        <flight>4</flight>
+        <color>GREEN</color>
         <land>
             <city>KASSEL</city>
             <city>KOLN</city>
@@ -1654,6 +2515,11 @@
     </city>
     <city>
         <name>INNSBRUCK</name>
+        <x>31</x>
+        <y>214</y>
+        <grid>4</grid>
+        <flight></flight>
+        <color>GREEN</color>
         <land>
             <city>MUNCHEN</city>
             <city>ZURICH</city>
@@ -1664,6 +2530,11 @@
     </city>
     <city>
         <name>BUDAPEST</name>
+        <x>239</x>
+        <y>186</y>
+        <grid>4</grid>
+        <flight>3</flight>
+        <color>GREEN</color>
         <land>
             <city>MISKOLC</city>
             <city>WIEN</city>
@@ -1676,6 +2547,11 @@
     </city>
     <city>
         <name>BRUXELLES</name>
+        <x>455</x>
+        <y>70</y>
+        <grid>3</grid>
+        <flight>4</flight>
+        <color>GREEN</color>
         <land>
             <city>ROTTERDAM</city>
             <city>LILLE</city>
@@ -1687,6 +2563,11 @@
     </city>
     <city>
         <name>DRESDEN</name>
+        <x>86</x>
+        <y>61</y>
+        <grid>4</grid>
+        <flight></flight>
+        <color>GREEN</color>
         <land>
             <city>BERLIN</city>
             <city>LEIPZIG</city>
@@ -1697,6 +2578,11 @@
     </city>
     <city>
         <name>LUXEMBOURG</name>
+        <x>499</x>
+        <y>115</y>
+        <grid>3</grid>
+        <flight></flight>
+        <color>GREEN</color>
         <land>
             <city>KOLN</city>
             <city>BRUXELLES</city>
@@ -1706,6 +2592,11 @@
     </city>
     <city>
         <name>MUNCHEN</name>
+        <x>40</x>
+        <y>177</y>
+        <grid>4</grid>
+        <flight>4</flight>
+        <color>GREEN</color>
         <land>
             <city>NURNBERG</city>
             <city>STUTTGART</city>
@@ -1716,6 +2607,11 @@
     </city>
     <city>
         <name>WIEN</name>
+        <x>165</x>
+        <y>168</y>
+        <grid>4</grid>
+        <flight>3</flight>
+        <color>GREEN</color>
         <land>
             <city>BRNO</city>
             <city>PRAHA</city>
@@ -1727,6 +2623,11 @@
     </city>
     <city>
         <name>BREST</name>
+        <x>218</x>
+        <y>133</y>
+        <grid>3</grid>
+        <flight></flight>
+        <color>GREEN</color>
         <land>
             <city>RENNES</city>
         </land>

@@ -15,11 +15,16 @@ import java.util.HashMap;
  */
 public class City {
     public static HashMap<String, City> cities = new HashMap<String, City>();
+    public static ArrayList<String> redcities = new ArrayList<String>();
+    public static ArrayList<String> greencities = new ArrayList<String>();
+    public static ArrayList<String> yellowcities = new ArrayList<String>();
     
     private String name;
     private float x;
     private float y;
     private int grid;
+    private int flight;
+    private String color;
     private ArrayList<String> landNeighbors;
     private ArrayList<String> seaNeighbors;
     
@@ -32,15 +37,6 @@ public class City {
         landNeighbors = new ArrayList<String>();
         seaNeighbors = new ArrayList<String>();
         this.name = name;
-    }
-    
-    public City(String name, float x, float y, int grid) {
-        landNeighbors = new ArrayList<String>();
-        seaNeighbors = new ArrayList<String>();
-        this.name = name;
-        this.x = x;
-        this.y = y;
-        this.grid = grid;
     }
     
     //Getters
@@ -58,6 +54,14 @@ public class City {
     
     public int getGrid() {
         return grid;
+    }
+    
+    public int getFlight() {
+        return flight;
+    }
+    
+    public String getColor() {
+        return color;
     }
     
     public ArrayList<String> getLandNeighbors() {
@@ -83,5 +87,13 @@ public class City {
     
     public void setGrid(int grid) {
         this.grid = grid;
+    }
+    
+    public void setFlight(int flight) {
+        this.flight = flight;
+    }
+    
+    public void setColor(String color) {
+        this.color = color;
     }
 }
