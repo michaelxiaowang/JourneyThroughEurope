@@ -89,7 +89,7 @@
         <color>RED</color>
         <land>
             <city>VAASA</city>
-            <city>TAMPERE</city>
+            <city>ROVANIEMI</city>
         </land>
         <sea></sea>
     </city>
@@ -238,6 +238,7 @@
         <color>RED</color>
         <land>
             <city>SUNDSVALL</city>
+            <city>OSLO</city>
         </land>
         <sea>
             <city>NARVIK</city>
@@ -301,13 +302,13 @@
         </land>
         <sea>
             <city>BERGEN</city>
-            <city>BREMEN</city>
+            <city>HAMBURG</city>
         </sea>
     </city>
     <city>
         <name>ARKHANGEL'SK</name>
-        <x>517</x>
-        <y>230</y>
+        <x>512</x>
+        <y>232</y>
         <grid>2</grid>
         <flight></flight>
         <color>RED</color>
@@ -373,8 +374,8 @@
     </city>
     <city>
         <name>TAMPERE</name>
-        <x>260</x>
-        <y>425</y>
+        <x>256</x>
+        <y>430</y>
         <grid>2</grid>
         <flight></flight>
         <color>RED</color>
@@ -394,6 +395,7 @@
         <land>
             <city>LULEA</city>
             <city>GAVLE</city>
+            <city>TORONDHEIM</city>
         </land>
         <sea></sea>
     </city>
@@ -732,10 +734,12 @@
         <land>
             <city>BREMEN</city>
             <city>HANNOVER</city>
-            <city>KOLN</city>
-            <city>GRONINGEN</city>
+            <city>KIEL</city>
+            <city>LUBECK</city>
         </land>
-        <sea></sea>
+        <sea>
+            <city>NEWCASTLE</city>
+        </sea>
     </city>
     <city>
         <name>OSLO</name>
@@ -749,6 +753,7 @@
             <city>STAVANGER</city>
             <city>KARLSTAD</city>
             <city>GOTEBORG</city>
+            <city>TORONDHEIM</city>
         </land>
         <sea>
             <city>ARHUS</city>
@@ -1846,7 +1851,7 @@
         <flight></flight>
         <color>GREEN</color>
         <land>
-            <city>FIRENZE</city>
+            <city>FRANKFURT</city>
             <city>STRASBOURG</city>
             <city>MUNCHEN</city>
         </land>
@@ -2355,7 +2360,7 @@
         <color>GREEN</color>
         <land>
             <city>INNSBRUCK</city>
-            <city>BOLZANO</city>
+            <city>BOLOGNA</city>
         </land>
         <sea></sea>
     </city>

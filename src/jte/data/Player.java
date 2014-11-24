@@ -15,12 +15,14 @@ import javafx.scene.image.ImageView;
  */
 public class Player {
     public static ArrayList<Player> players = new ArrayList<Player>();
-    
+    private int turns;
     private String name;
     private String color;
     private boolean computer;
+    private boolean waitingForShip;
     private City startCity;
     private City currentCity;
+    private City waitingForCity;
     private ArrayList<String> cards;
     private ImageView playerPiece;
     private ImageView playerFlag;
@@ -40,8 +42,16 @@ public class Player {
         return name;
     }
     
+    public int getTurns() {
+        return turns;
+    }
+    
     public boolean isComputer() {
         return computer;
+    }
+    
+    public boolean isWaitingForShip() {
+        return waitingForShip;
     }
     
     public City getStartCity() {
@@ -50,6 +60,10 @@ public class Player {
     
     public City getCurrentCity() {
         return currentCity;
+    }
+    
+    public City getWaitingCity() {
+        return waitingForCity;
     }
     
     public ImageView getPiece() {
@@ -69,12 +83,24 @@ public class Player {
     }
     
     //Setters
+    public void setTurns(int turns) {
+        this.turns = turns;
+    }
+    
+    public void setWaitingForShip(boolean waitingForShip) {
+        this.waitingForShip = waitingForShip;
+    }
+    
     public void setStartCity(City startCity) {
         this.startCity = startCity;
     }
     
     public void setCurrentCity(City currentCity) {
         this.currentCity = currentCity;
+    }
+    
+    public void setWaitingCity(City waitingForCity) {
+        this.waitingForCity = waitingForCity;
     }
     
     public void setPiece(ImageView playerPiece) {

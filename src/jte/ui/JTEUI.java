@@ -7,16 +7,10 @@ package jte.ui;
 
 import application.Main.JTEPropertyType;
 import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.concurrent.locks.ReentrantLock;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javafx.animation.SequentialTransition;
-import javafx.animation.Timeline;
 import javafx.animation.TranslateTransition;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
-import javafx.event.EventType;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
@@ -28,12 +22,8 @@ import javafx.scene.control.ToggleGroup;
 import javafx.scene.control.Tooltip;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.input.ClipboardContent;
-import javafx.scene.input.DragEvent;
-import javafx.scene.input.Dragboard;
 import javafx.scene.input.MouseDragEvent;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.input.TransferMode;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
@@ -50,7 +40,6 @@ import javafx.stage.Stage;
 import javafx.util.Duration;
 import jte.data.City;
 import jte.data.Player;
-import jte.game.JTEGameData;
 import jte.game.JTEGameStateManager;
 import properties_manager.PropertiesManager;
 import xmlparser.XMLParser;
@@ -114,6 +103,8 @@ public class JTEUI extends Pane {
     public ArrayList<ToggleGroup> playerTypes;
     public int currentPlayer;
     private int currentGrid;
+    private Label turnInfo;
+    private Label statusInfo;
     private ImageView grid1;
     private ImageView grid2;
     private ImageView grid3;
@@ -439,7 +430,11 @@ public class JTEUI extends Pane {
         nameBox.setPrefSize(300, 50);
         nameBox.setStyle("-fx-border-color: #002966; -fx-border-width: 2px; -fx-background-color: #127696");
         cardPane = new AnchorPane();
-        leftGamePane.getChildren().addAll(nameBox, cardPane);
+        statusInfo = new Label("Dealing Cards...");
+        HBox statusAlign = new HBox();
+        statusAlign.setAlignment(Pos.CENTER);
+        statusAlign.getChildren().add(statusInfo);
+        leftGamePane.getChildren().addAll(nameBox, statusAlign, cardPane);
         leftGamePane.setSpacing(20);
 
         //gamePane right
@@ -490,8 +485,21 @@ public class JTEUI extends Pane {
             }
 
         });
-        buttons.getChildren().addAll(home, about, history, exit);
+        Button end = new Button("End Turn");
+        end.setOnAction(new EventHandler<ActionEvent>() {
+
+            @Override
+            public void handle(ActionEvent event) {
+                // TODO Auto-generated method stub
+                eventHandler.respondToEndTurnRequest();
+            }
+
+        });
+        buttons.getChildren().addAll(home, about, history, exit, end);
         rightGamePane.setTop(buttons);
+        
+        //Turn Info Text
+        turnInfo = new Label("Roll Dice!");
 
         //Dice
         Image dice = loadImage("die_1.jpg");
@@ -578,7 +586,7 @@ public class JTEUI extends Pane {
         //Add the die and gridselector
         VBox dieGridV = new VBox();
         HBox dieGridH = new HBox();
-        dieGridV.getChildren().addAll(diceView, gridSelector);
+        dieGridV.getChildren().addAll(turnInfo, diceView, gridSelector);
         dieGridV.setAlignment(Pos.CENTER);
         dieGridV.setSpacing(20);
         dieGridH.getChildren().add(dieGridV);
@@ -687,6 +695,7 @@ public class JTEUI extends Pane {
                     animateBeginning(p + 1);
                 } else {
                     changeCardPane(0);
+                    updateStatusInfoLabel(Player.players.get(0).getName() + "'s turn begins.");
                 }
             }
         });
@@ -774,13 +783,26 @@ public class JTEUI extends Pane {
             cardPane.getChildren().add(cardBorder);
         }
     }
+    
+    /**
+     * Update turn info label
+     */
+    public void updateTurnInfoLabel(String s) {
+        turnInfo.setText(s);
+    }
+    
+    /**
+     * Update status info label
+     */
+    public void updateStatusInfoLabel(String s) {
+        statusInfo.setText(s);
+    }
 
     /**
      * Change Die Picture
      */
-    public void changeDie() {
-        Integer num = (int) (Math.random() * 6 + 1);
-        String dieImagePath = "die_" + num.toString() + ".jpg";
+    public void changeDie(int num) {
+        String dieImagePath = "die_" + ((Integer)num).toString() + ".jpg";
         diceView.setImage(loadImage(dieImagePath));
     }
 
