@@ -8,8 +8,15 @@ package jte.ui;
 import application.Main.JTEPropertyType;
 import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.concurrent.locks.ReentrantLock;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javafx.animation.SequentialTransition;
+import javafx.animation.Timeline;
+import javafx.animation.TranslateTransition;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
+import javafx.event.EventType;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
@@ -29,10 +36,13 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
+import javafx.scene.shape.Line;
 import javafx.scene.web.WebEngine;
 import javafx.scene.web.WebView;
 import javafx.stage.Stage;
+import javafx.util.Duration;
 import jte.data.City;
 import jte.data.Player;
 import jte.game.JTEGameData;
@@ -97,6 +107,7 @@ public class JTEUI extends Pane {
     //gamePane
     public ArrayList<TextField> playerNames;
     public ArrayList<ToggleGroup> playerTypes;
+    public int currentPlayer;
     private int currentGrid;
     private ImageView grid1;
     private ImageView grid2;
@@ -108,7 +119,8 @@ public class JTEUI extends Pane {
     private GridPane gridSelector;
     private BorderPane gamePane;
     private BorderPane gridFrame;
-    private BorderPane leftGamePane;
+    private VBox leftGamePane;
+    public AnchorPane cardPane;
     private BorderPane rightGamePane;
 
     //historyScreen
@@ -303,7 +315,7 @@ public class JTEUI extends Pane {
             @Override
             public void handle(ActionEvent event) {
                 // TODO Auto-generated method stub
-                eventHandler.respondToNewGameRequest(JTEUIState.PLAY_GAME_STATE, Integer.parseInt((String)(numberPlayerList.getValue())));
+                eventHandler.respondToNewGameRequest(JTEUIState.PLAY_GAME_STATE, Integer.parseInt((String) (numberPlayerList.getValue())));
             }
 
         });
@@ -415,13 +427,15 @@ public class JTEUI extends Pane {
         gamePane.setCenter(gridPane);
 
         //gamePane left
-        leftGamePane = new BorderPane();
+        leftGamePane = new VBox();
         leftGamePane.setPrefSize(300, 800);
         gamePane.setLeft(leftGamePane);
         nameBox = new StackPane();
-        nameBox.setPrefSize(300, 200);
-        nameBox.setStyle("-fx-border-color: black; -fx-border-width: 2px");
-        leftGamePane.setTop(nameBox);
+        nameBox.setPrefSize(300, 50);
+        nameBox.setStyle("-fx-border-color: #002966; -fx-border-width: 2px; -fx-background-color: #127696");
+        cardPane = new AnchorPane();
+        leftGamePane.getChildren().addAll(nameBox, cardPane);
+        leftGamePane.setSpacing(20);
 
         //gamePane right
         rightGamePane = new BorderPane();
@@ -572,7 +586,7 @@ public class JTEUI extends Pane {
             //Make the city button
             if (city.getGrid() == currentGrid) {
                 Button cityButton = new Button();
-                Tooltip cityInfo = new Tooltip(city.getName() + "\n (" + city.getX() + ", " + city.getY() + ")");
+                Tooltip cityInfo = new Tooltip(city.getName() + "\n (" + (float)city.getX() + ", " + (float)city.getY() + ")");
                 cityButton.setTooltip(cityInfo);
                 Circle circle = new Circle();
                 circle.setRadius(10);
@@ -594,15 +608,15 @@ public class JTEUI extends Pane {
             }
         }
     }
-    
+
     /**
      * Deal the cards
      */
     public void dealCards() {
         ArrayList<String> playerPieces = props.getPropertyOptionsList(JTEPropertyType.PLAYER_PIECE);
         ArrayList<String> playerFlags = props.getPropertyOptionsList(JTEPropertyType.PLAYER_FLAG);
-        for(int i = 0; i < Player.players.size(); i++) {
-            
+        for (int i = 0; i < Player.players.size(); i++) {
+
             //Set the player flags and pieces
             Player player = Player.players.get(i);
             ImageView piece = new ImageView(loadImage(playerPieces.get(i)));
@@ -612,38 +626,173 @@ public class JTEUI extends Pane {
             flag.setFitWidth(30);
             flag.setFitHeight(30);
             player.setPiece(piece);
-            player.setFlag(piece);
-            
+            player.setFlag(flag);
+
             //Deal the cards
             int card;
-            switch((i+1)%3) {
-                case 1:
-                    card = (int)(Math.random()*City.redcities.size() + 1);
+            switch ((i) % 3) {
+                case 0:
+                    card = (int) (Math.random() * City.redcities.size());
                     player.getCards().add(City.redcities.remove(card));
-                    card = (int)(Math.random()*City.redcities.size() + 1);
+                    card = (int) (Math.random() * City.greencities.size());
                     player.getCards().add(City.greencities.remove(card));
-                    card = (int)(Math.random()*City.redcities.size() + 1);
+                    card = (int) (Math.random() * City.yellowcities.size());
                     player.getCards().add(City.yellowcities.remove(card));
+                    break;
+                case 1:
+                    card = (int) (Math.random() * City.greencities.size());
+                    player.getCards().add(City.greencities.remove(card));
+                    card = (int) (Math.random() * City.yellowcities.size());
+                    player.getCards().add(City.yellowcities.remove(card));
+                    card = (int) (Math.random() * City.redcities.size());
+                    player.getCards().add(City.redcities.remove(card));
                     break;
                 case 2:
-                    card = (int)(Math.random()*City.redcities.size() + 1);
-                    player.getCards().add(City.greencities.remove(card));
-                    card = (int)(Math.random()*City.redcities.size() + 1);
+                    card = (int) (Math.random() * City.yellowcities.size());
                     player.getCards().add(City.yellowcities.remove(card));
-                    card = (int)(Math.random()*City.redcities.size() + 1);
+                    card = (int) (Math.random() * City.redcities.size());
                     player.getCards().add(City.redcities.remove(card));
-                    break;
-                case 3:
-                    card = (int)(Math.random()*City.redcities.size() + 1);
-                    player.getCards().add(City.yellowcities.remove(card));
-                    card = (int)(Math.random()*City.redcities.size() + 1);
-                    player.getCards().add(City.redcities.remove(card));
-                    card = (int)(Math.random()*City.redcities.size() + 1);
+                    card = (int) (Math.random() * City.greencities.size());
                     player.getCards().add(City.greencities.remove(card));
                     break;
             }
-            
-            //Animate it
+        }
+        for(Player p: Player.players) {
+            System.out.println(p.getName() + p.getCards());
+        }
+    }
+
+    //Animate it
+    public void animateBeginning(int p) {
+        Label playerName = new Label(Player.players.get(p).getName());
+        nameBox.getChildren().add(playerName);
+        if(Player.players.get(p).getColor().equalsIgnoreCase("black")) {
+            playerName.setTextFill(Color.web("white"));
+        }
+        else {
+            playerName.setTextFill(Color.web("black"));
+        }
+        nameBox.setStyle("-fx-background-color: " + Player.players.get(p).getColor() + ";-fx-border-color: #002966; -fx-border-width: 2px;");
+        SequentialTransition timeline = new SequentialTransition();
+        timeline.getChildren().clear();
+        double layoutX = 25;
+        double layoutY = 0;
+        for (int j = 0; j < Player.players.get(p).getCards().size(); j++) {
+            ImageView c = new ImageView(loadImage(Player.players.get(p).getCards().get(j) + ".JPG"));
+            c.setFitWidth(250);
+            c.setFitHeight(400);
+            HBox cardBorder = new HBox();
+            cardBorder.setLayoutX(layoutX);
+            cardBorder.setLayoutY(layoutY);
+            cardBorder.setStyle("-fx-border-color: black; -fx-border-width: 2px;");
+            cardBorder.getChildren().add(c);
+            layoutY += 75;
+            TranslateTransition animation = new TranslateTransition(Duration.millis(0), cardBorder);
+            animation.setFromX(600);
+            animation.setFromY(400);
+            animation.setToX(0);
+            animation.setToY(0);
+            timeline.getChildren().add(animation);
+            cardPane.getChildren().add(cardBorder);
+        }
+        timeline.play();
+        //Necessary to make the next animation wait until done
+        timeline.setOnFinished(new EventHandler<ActionEvent>() {
+
+            @Override
+            public void handle(ActionEvent event) {
+                cardPane.getChildren().clear();
+                nameBox.getChildren().clear();
+                if (p < (Player.players.size() - 1)) {
+                    animateBeginning(p + 1);
+                }
+                else {
+                    changeCardPane(0);
+                }
+            }
+        });
+    }
+    
+    /**
+     * Place the pieces
+     */
+    public void placePlayers() {
+        ImageView playerPiece = new ImageView();
+        for(Player p: Player.players) {
+            if(p.getCurrentCity().getGrid() == currentGrid) {
+                playerPiece = p.getPiece();
+                playerPiece.setLayoutX(((float)p.getCurrentCity().getX()-5));
+                playerPiece.setLayoutY(((float)p.getCurrentCity().getY()-15));
+                gridPane.getChildren().add(playerPiece);
+            }
+        }
+    }
+    
+    /**
+     * Place the flags
+     */
+    public void placeFlags() {
+        ImageView playerFlag = new ImageView();
+        for(Player p: Player.players) {
+            if(City.cities.get(p.getCards().get(0)).getGrid() == currentGrid) {
+                playerFlag = p.getFlag();
+                playerFlag.setLayoutX(((float)p.getStartCity().getX()-15));
+                playerFlag.setLayoutY(((float)p.getStartCity().getY()-25));
+                gridPane.getChildren().add(playerFlag);
+            }
+        }
+    }
+    
+    /**
+     * Draw the lines
+     */
+    public void drawLines(City c) {
+        if(c.getGrid() != currentGrid) {
+            return;
+        }
+        ArrayList<String> n = new ArrayList();
+        for(String l: c.getLandNeighbors()) {
+            n.add(l);
+        }
+        for(String s: c.getSeaNeighbors()) {
+            n.add(s);
+        }
+        for(String s: n) {
+            City neighbor = City.cities.get(s);
+            Line line = new Line(c.getX(), c.getY(), neighbor.getX(), neighbor.getY());
+            line.setStyle("-fx-stroke: red");
+            if(c.getGrid() == neighbor.getGrid()) {
+                gridPane.getChildren().add(line);
+            }
+        }
+    }
+    
+    /**
+     * Set the card pane
+     */
+    public void changeCardPane(int n) {
+        Label playerName = new Label(Player.players.get(n).getName());
+        nameBox.getChildren().add(playerName);
+        if(Player.players.get(n).getColor().equalsIgnoreCase("black")) {
+            playerName.setTextFill(Color.web("white"));
+        }
+        else {
+            playerName.setTextFill(Color.web("black"));
+        }
+        nameBox.setStyle("-fx-background-color: " + Player.players.get(n).getColor() + ";-fx-border-color: #002966; -fx-border-width: 2px;");
+        double layoutX = 25;
+        double layoutY = 0;
+        for (int j = 0; j < Player.players.get(n).getCards().size(); j++) {
+            ImageView c = new ImageView(loadImage(Player.players.get(n).getCards().get(j) + ".JPG"));
+            c.setFitWidth(250);
+            c.setFitHeight(400);
+            HBox cardBorder = new HBox();
+            cardBorder.setLayoutX(layoutX);
+            cardBorder.setLayoutY(layoutY);
+            cardBorder.setStyle("-fx-border-color: black; -fx-border-width: 2px;");
+            cardBorder.getChildren().add(c);
+            layoutY += 75;
+            cardPane.getChildren().add(cardBorder);
         }
     }
 
@@ -680,6 +829,8 @@ public class JTEUI extends Pane {
                 break;
         }
         gridPane.getChildren().add(gridFrame);
+        placeFlags();
+        placePlayers();
         for (City city : City.cities.values()) {
             //Make the city button
             if (city.getGrid() == currentGrid) {
@@ -699,11 +850,47 @@ public class JTEUI extends Pane {
 
                     @Override
                     public void handle(MouseEvent event) {
-                        // TODO Auto-generated method stub
+                        eventHandler.respondToCityClickedRequest(city);
                     }
 
                 });
             }
+        }
+        if(Player.players.get(currentPlayer).getCurrentCity().getGrid() == currentGrid)
+            drawLines(Player.players.get(currentPlayer).getCurrentCity());
+    }
+    
+    /**
+     * Move the player piece
+     */
+    public void movePlayer(City city1, City city2) {
+        Player p = Player.players.get(currentPlayer);
+        ImageView playerPiece = p.getPiece();
+        p.setCurrentCity(city2);
+        if(city1.getGrid() == city2.getGrid()) {
+            TranslateTransition animation = new TranslateTransition(Duration.millis(1500), p.getPiece());
+            animation.setFromX(city1.getX() - city2.getX());
+            animation.setFromY(city1.getY() - city2.getY());
+            animation.setToX(0);
+            animation.setToY(0);
+            animation.play();
+        }
+        playerPiece.setLayoutX(((float)city2.getX()-5));
+        playerPiece.setLayoutY(((float)city2.getY()-15));
+        drawLines(city2);
+        switch(city2.getGrid()) {
+            case 1:
+                changeGrid(JTEGridState.ONE_STATE);
+                break;
+            case 2:
+                changeGrid(JTEGridState.TWO_STATE);
+                break;
+            case 3:
+                changeGrid(JTEGridState.THREE_STATE);
+                break;
+            case 4:
+                changeGrid(JTEGridState.FOUR_STATE);
+                break;
         }
     }
 

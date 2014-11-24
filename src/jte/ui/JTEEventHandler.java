@@ -7,6 +7,8 @@ package jte.ui;
 
 import application.Main.JTEPropertyType;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
@@ -18,6 +20,7 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
+import jte.data.City;
 import jte.data.Player;
 import properties_manager.PropertiesManager;
 
@@ -48,6 +51,9 @@ public class JTEEventHandler {
 
     public void respondToNewGameRequest(JTEUI.JTEUIState uiState, int numPlayers) {
         Player.players.clear();
+        PropertiesManager props = PropertiesManager.getPropertiesManager();
+        ArrayList<String> colors = props.getPropertyOptionsList(JTEPropertyType.PLAYER_COLOR);
+        Player.players.clear();
         String name;
         Boolean computer = false;
         Boolean startGame = false;
@@ -67,11 +73,24 @@ public class JTEEventHandler {
                 name = ("Player " + ((Integer)(i + 1)).toString());
             }
             Player.players.add(new Player(name, computer));
+            Player.players.get(i).setColor(colors.get(i));
         }
+        System.out.println(Player.players.size());
         if (startGame == true) {
             ui.initJTEUI();
             ui.changeScreen(uiState);
             ui.dealCards();
+            ui.animateBeginning(0);
+            for(Player p: Player.players) {
+                City start = City.cities.get(p.getCards().get(0));
+                p.setStartCity(start);
+                p.setCurrentCity(start);
+            }
+            //Start game with player 1's cards
+            ui.placePlayers();
+            ui.placeFlags();
+            ui.currentPlayer = 0;
+            ui.drawLines(Player.players.get(ui.currentPlayer).getCurrentCity());
         }
         else {
             //Inform the user that they did not select the required options
@@ -96,8 +115,15 @@ public class JTEEventHandler {
         }
     }
 
-    public void respondToCityClickedRequest() {
-        System.out.print("Hello");
+    public void respondToCityClickedRequest(City city) {
+        City currentCity = Player.players.get(ui.currentPlayer).getCurrentCity();
+        String cityName = city.getName();
+        ArrayList<String> cityNeighbors = new ArrayList();
+        cityNeighbors.addAll(currentCity.getSeaNeighbors());
+        cityNeighbors.addAll(currentCity.getLandNeighbors());
+        if(cityNeighbors.contains(city.getName())) {
+            ui.movePlayer(currentCity, city);
+        }
     }
 
     public void respondToRollDieRequest() {

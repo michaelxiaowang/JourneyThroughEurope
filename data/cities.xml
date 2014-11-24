@@ -1815,10 +1815,10 @@
         <flight></flight>
         <color>GREEN</color>
         <land>
-            <city>LUXEMBOURG</city>
-            <city>REIMS</city>
-            <city>DIJON</city>
-            <city>STRASBOURG</city>
+            <city>LIMOGES</city>
+            <city>LYON</city>
+            <city>NARBONNE</city>
+            <city>PARIS</city>
         </land>
         <sea></sea>
     </city>
@@ -2013,7 +2013,7 @@
     <city>
         <name>GALATI</name>
         <x>497</x>
-        <y>221</y>
+        <y>231</y>
         <grid>4</grid>
         <flight></flight>
         <color>GREEN</color>

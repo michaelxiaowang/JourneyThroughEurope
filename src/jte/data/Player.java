@@ -17,11 +17,10 @@ public class Player {
     public static ArrayList<Player> players = new ArrayList<Player>();
     
     private String name;
+    private String color;
     private boolean computer;
-    private int startX;
-    private int startY;
-    private int currentX;
-    private int currentY;
+    private City startCity;
+    private City currentCity;
     private ArrayList<String> cards;
     private ImageView playerPiece;
     private ImageView playerFlag;
@@ -45,20 +44,12 @@ public class Player {
         return computer;
     }
     
-    public int getStartX() {
-        return startX;
+    public City getStartCity() {
+        return startCity;
     }
     
-    public int getStartY() {
-        return startX;
-    }
-    
-    public int getCurrentX() {
-        return currentX;
-    }
-    
-    public int getCurrentY() {
-        return currentY;
+    public City getCurrentCity() {
+        return currentCity;
     }
     
     public ImageView getPiece() {
@@ -73,21 +64,17 @@ public class Player {
         return cards;
     }
     
+    public String getColor() {
+        return color;
+    }
+    
     //Setters
-    public void setStartX(int startX) {
-        this.startX = startX;
+    public void setStartCity(City startCity) {
+        this.startCity = startCity;
     }
     
-    public void setStartY(int startY) {
-        this.startY = startY;
-    }
-    
-    public void setCurrentX(int currentX) {
-        this.currentX = currentX;
-    }
-    
-    public void setCurrentY(int startY) {
-        this.currentY = currentY;
+    public void setCurrentCity(City currentCity) {
+        this.currentCity = currentCity;
     }
     
     public void setPiece(ImageView playerPiece) {
@@ -96,5 +83,9 @@ public class Player {
     
     public void setFlag(ImageView playerFlag) {
         this.playerFlag = playerFlag;
+    }
+    
+    public void setColor(String color) {
+        this.color = color;
     }
 }

@@ -20,8 +20,8 @@ public class City {
     public static ArrayList<String> yellowcities = new ArrayList<String>();
     
     private String name;
-    private float x;
-    private float y;
+    private int x;
+    private int y;
     private int grid;
     private int flight;
     private String color;
@@ -44,11 +44,11 @@ public class City {
         return name;
     }
     
-    public float getX() {
+    public int getX() {
         return x;
     }
     
-    public float getY() {
+    public int getY() {
         return y;
     }
     
