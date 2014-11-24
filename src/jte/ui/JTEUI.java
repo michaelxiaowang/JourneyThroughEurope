@@ -28,7 +28,12 @@ import javafx.scene.control.ToggleGroup;
 import javafx.scene.control.Tooltip;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.ClipboardContent;
+import javafx.scene.input.DragEvent;
+import javafx.scene.input.Dragboard;
+import javafx.scene.input.MouseDragEvent;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.input.TransferMode;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
@@ -582,31 +587,7 @@ public class JTEUI extends Pane {
 
         //Load the city info
         XMLParser.parsexml();
-        for (City city : City.cities.values()) {
-            //Make the city button
-            if (city.getGrid() == currentGrid) {
-                Button cityButton = new Button();
-                Tooltip cityInfo = new Tooltip(city.getName() + "\n (" + (float)city.getX() + ", " + (float)city.getY() + ")");
-                cityButton.setTooltip(cityInfo);
-                Circle circle = new Circle();
-                circle.setRadius(10);
-                cityButton.setShape(circle);
-                cityButton.setLayoutX(city.getX() - 10);
-                cityButton.setLayoutY(city.getY() - 10);
-                cityButton.setStyle("-fx-cursor: hand; -fx-background-color: transparent;");
-                gridPane.getChildren().add(cityButton);
-
-                //When button is clicked, respond accordingly
-                cityButton.setOnMouseClicked(new EventHandler<MouseEvent>() {
-
-                    @Override
-                    public void handle(MouseEvent event) {
-                        // TODO Auto-generated method stub
-                    }
-
-                });
-            }
-        }
+        setCityButtons();
     }
 
     /**
@@ -657,7 +638,7 @@ public class JTEUI extends Pane {
                     break;
             }
         }
-        for(Player p: Player.players) {
+        for (Player p : Player.players) {
             System.out.println(p.getName() + p.getCards());
         }
     }
@@ -666,10 +647,9 @@ public class JTEUI extends Pane {
     public void animateBeginning(int p) {
         Label playerName = new Label(Player.players.get(p).getName());
         nameBox.getChildren().add(playerName);
-        if(Player.players.get(p).getColor().equalsIgnoreCase("black")) {
+        if (Player.players.get(p).getColor().equalsIgnoreCase("black")) {
             playerName.setTextFill(Color.web("white"));
-        }
-        else {
+        } else {
             playerName.setTextFill(Color.web("black"));
         }
         nameBox.setStyle("-fx-background-color: " + Player.players.get(p).getColor() + ";-fx-border-color: #002966; -fx-border-width: 2px;");
@@ -687,7 +667,7 @@ public class JTEUI extends Pane {
             cardBorder.setStyle("-fx-border-color: black; -fx-border-width: 2px;");
             cardBorder.getChildren().add(c);
             layoutY += 75;
-            TranslateTransition animation = new TranslateTransition(Duration.millis(0), cardBorder);
+            TranslateTransition animation = new TranslateTransition(Duration.millis(1000), cardBorder);
             animation.setFromX(600);
             animation.setFromY(400);
             animation.setToX(0);
@@ -705,78 +685,77 @@ public class JTEUI extends Pane {
                 nameBox.getChildren().clear();
                 if (p < (Player.players.size() - 1)) {
                     animateBeginning(p + 1);
-                }
-                else {
+                } else {
                     changeCardPane(0);
                 }
             }
         });
     }
-    
+
     /**
      * Place the pieces
      */
     public void placePlayers() {
         ImageView playerPiece = new ImageView();
-        for(Player p: Player.players) {
-            if(p.getCurrentCity().getGrid() == currentGrid) {
+        for (Player p : Player.players) {
+            if (p.getCurrentCity().getGrid() == currentGrid) {
                 playerPiece = p.getPiece();
-                playerPiece.setLayoutX(((float)p.getCurrentCity().getX()-5));
-                playerPiece.setLayoutY(((float)p.getCurrentCity().getY()-15));
+                playerPiece.setLayoutX(((float) p.getCurrentCity().getX() - 5));
+                playerPiece.setLayoutY(((float) p.getCurrentCity().getY() - 15));
                 gridPane.getChildren().add(playerPiece);
             }
         }
     }
-    
+
     /**
      * Place the flags
      */
     public void placeFlags() {
         ImageView playerFlag = new ImageView();
-        for(Player p: Player.players) {
-            if(City.cities.get(p.getCards().get(0)).getGrid() == currentGrid) {
+        for (Player p : Player.players) {
+            if (City.cities.get(p.getCards().get(0)).getGrid() == currentGrid) {
                 playerFlag = p.getFlag();
-                playerFlag.setLayoutX(((float)p.getStartCity().getX()-15));
-                playerFlag.setLayoutY(((float)p.getStartCity().getY()-25));
+                playerFlag.setLayoutX(((float) p.getStartCity().getX() - 15));
+                playerFlag.setLayoutY(((float) p.getStartCity().getY() - 25));
                 gridPane.getChildren().add(playerFlag);
             }
         }
     }
-    
+
     /**
      * Draw the lines
      */
     public void drawLines(City c) {
-        if(c.getGrid() != currentGrid) {
+        if (c.getGrid() != currentGrid) {
             return;
         }
         ArrayList<String> n = new ArrayList();
-        for(String l: c.getLandNeighbors()) {
+        for (String l : c.getLandNeighbors()) {
             n.add(l);
         }
-        for(String s: c.getSeaNeighbors()) {
+        for (String s : c.getSeaNeighbors()) {
             n.add(s);
         }
-        for(String s: n) {
+        for (String s : n) {
             City neighbor = City.cities.get(s);
             Line line = new Line(c.getX(), c.getY(), neighbor.getX(), neighbor.getY());
             line.setStyle("-fx-stroke: red");
-            if(c.getGrid() == neighbor.getGrid()) {
+            if (c.getGrid() == neighbor.getGrid()) {
                 gridPane.getChildren().add(line);
             }
         }
     }
-    
+
     /**
      * Set the card pane
      */
     public void changeCardPane(int n) {
+        cardPane.getChildren().clear();
         Label playerName = new Label(Player.players.get(n).getName());
         nameBox.getChildren().add(playerName);
-        if(Player.players.get(n).getColor().equalsIgnoreCase("black")) {
+        if (Player.players.get(n).getColor().equalsIgnoreCase("black")) {
             playerName.setTextFill(Color.web("white"));
-        }
-        else {
+        } else {
             playerName.setTextFill(Color.web("black"));
         }
         nameBox.setStyle("-fx-background-color: " + Player.players.get(n).getColor() + ";-fx-border-color: #002966; -fx-border-width: 2px;");
@@ -831,6 +810,16 @@ public class JTEUI extends Pane {
         gridPane.getChildren().add(gridFrame);
         placeFlags();
         placePlayers();
+        setCityButtons();
+        if (Player.players.get(currentPlayer).getCurrentCity().getGrid() == currentGrid) {
+            drawLines(Player.players.get(currentPlayer).getCurrentCity());
+        }
+    }
+    
+    /**
+     * Set the city buttons in the currentGrid
+     */
+    public void setCityButtons() {
         for (City city : City.cities.values()) {
             //Make the city button
             if (city.getGrid() == currentGrid) {
@@ -854,12 +843,44 @@ public class JTEUI extends Pane {
                     }
 
                 });
+                
+                
+                cityButton.setOnMouseReleased(new EventHandler<MouseEvent>() {
+
+                    @Override
+                    public void handle(MouseEvent event) {
+                        cityButton.setMouseTransparent(false);
+                    }
+
+                });
+
+                cityButton.setOnDragDetected(new EventHandler<MouseEvent>() {
+
+                    @Override
+                    public void handle(MouseEvent event) {
+                        // TODO Auto-generated method stub
+                        if(city.getX() == Player.players.get(currentPlayer).getCurrentCity().getX()) {
+                            cityButton.startFullDrag();
+                            cityButton.setMouseTransparent(true);
+                        }
+                        else {
+                            event.consume();
+                        }
+                    }
+
+                });
+
+                cityButton.setOnMouseDragReleased(new EventHandler<MouseDragEvent>() {
+                @Override
+                public void handle(MouseDragEvent event) {
+                    eventHandler.respondToCityClickedRequest(city);
+                }
+            });
+
             }
         }
-        if(Player.players.get(currentPlayer).getCurrentCity().getGrid() == currentGrid)
-            drawLines(Player.players.get(currentPlayer).getCurrentCity());
     }
-    
+
     /**
      * Move the player piece
      */
@@ -867,7 +888,7 @@ public class JTEUI extends Pane {
         Player p = Player.players.get(currentPlayer);
         ImageView playerPiece = p.getPiece();
         p.setCurrentCity(city2);
-        if(city1.getGrid() == city2.getGrid()) {
+        if (city1.getGrid() == city2.getGrid()) {
             TranslateTransition animation = new TranslateTransition(Duration.millis(1500), p.getPiece());
             animation.setFromX(city1.getX() - city2.getX());
             animation.setFromY(city1.getY() - city2.getY());
@@ -875,10 +896,10 @@ public class JTEUI extends Pane {
             animation.setToY(0);
             animation.play();
         }
-        playerPiece.setLayoutX(((float)city2.getX()-5));
-        playerPiece.setLayoutY(((float)city2.getY()-15));
+        playerPiece.setLayoutX(((float) city2.getX() - 5));
+        playerPiece.setLayoutY(((float) city2.getY() - 15));
         drawLines(city2);
-        switch(city2.getGrid()) {
+        switch (city2.getGrid()) {
             case 1:
                 changeGrid(JTEGridState.ONE_STATE);
                 break;

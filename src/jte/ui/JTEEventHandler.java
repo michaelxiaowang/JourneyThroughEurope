@@ -53,7 +53,6 @@ public class JTEEventHandler {
         Player.players.clear();
         PropertiesManager props = PropertiesManager.getPropertiesManager();
         ArrayList<String> colors = props.getPropertyOptionsList(JTEPropertyType.PLAYER_COLOR);
-        Player.players.clear();
         String name;
         Boolean computer = false;
         Boolean startGame = false;
@@ -123,6 +122,17 @@ public class JTEEventHandler {
         cityNeighbors.addAll(currentCity.getLandNeighbors());
         if(cityNeighbors.contains(city.getName())) {
             ui.movePlayer(currentCity, city);
+        }
+        if(Player.players.get(ui.currentPlayer).getCards().contains(city.getName())) {
+            if(!Player.players.get(ui.currentPlayer).getCards().get(0).equalsIgnoreCase(city.getName())) {
+                Player.players.get(ui.currentPlayer).getCards().remove(city.getName());
+            }
+            else {
+                if(Player.players.get(ui.currentPlayer).getCards().size() == 1) {
+                    Player.players.get(ui.currentPlayer).getCards().remove(city.getName());
+                }
+            }
+            ui.changeCardPane(ui.currentPlayer);
         }
     }
 
